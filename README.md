@@ -8,6 +8,9 @@ git clone git@github.com:donny-son/nvim-config.git ~/.config/nvim
 
 ## Dependencies
 
+### Languages
+Need to install python and golang.
+
 ### Plugin Manager
 Install plugin mananger ```vim-plug``` with the following command.
 ```
