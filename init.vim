@@ -17,14 +17,14 @@ set foldlevel=99
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set textwidth=79
+set textwidth=80
 set expandtab
 set autoindent
 set fileformat=unix
 set ruler
 set incsearch
 set termguicolors
-set scrolloff=10
+set scrolloff=30
 set colorcolumn=80
 set signcolumn=yes
 
@@ -40,6 +40,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 " Plug 'davidhalter/jedi-vim',
 Plug 'Iron-E/nvim-libmodal'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'Iron-E/nvim-typora'
 Plug 'plasticboy/vim-markdown'
 call plug#end()
