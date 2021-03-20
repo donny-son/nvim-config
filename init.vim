@@ -1,4 +1,5 @@
 set nocompatible              " required
+set mouse=a
 filetype off                  " required
 syntax on
 set hidden
