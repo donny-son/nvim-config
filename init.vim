@@ -18,7 +18,6 @@ set foldlevel=99
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set textwidth=80
 set expandtab
 set autoindent
 set fileformat=unix
@@ -26,6 +25,7 @@ set ruler
 set incsearch
 set termguicolors
 set scrolloff=30
+" set textwidth=80
 " set colorcolumn=80
 set signcolumn=yes
 
@@ -36,7 +36,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-" Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/seoul256.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 " Plug 'davidhalter/jedi-vim',
@@ -47,7 +47,7 @@ Plug 'plasticboy/vim-markdown'
 call plug#end()
 
 
-let g:NERDTreeWinSize=25
+let g:NERDTreeWinSize=20
 " let g:seoul256_background = 233
 " color seoul256
 
