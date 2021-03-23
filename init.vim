@@ -18,7 +18,6 @@ set foldlevel=99
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set textwidth=80
 set expandtab
 set autoindent
 set fileformat=unix
@@ -26,7 +25,12 @@ set ruler
 set incsearch
 set termguicolors
 set scrolloff=30
+<<<<<<< HEAD
 set colorcolumn=80
+=======
+" set textwidth=80
+" set colorcolumn=80
+>>>>>>> 939104b480165ddd42b00f08f16bc9474fac0e27
 set signcolumn=yes
 
 call plug#begin('~/.vim/plugged')
