@@ -1,9 +1,9 @@
 set nocompatible              " required
-set mouse=a
 filetype off                  " required
 syntax on
 set hidden
 set nohlsearch
+set cursorline
 set noerrorbells
 set ruler
 set incsearch
@@ -26,7 +26,7 @@ set ruler
 set incsearch
 set termguicolors
 set scrolloff=30
-" set colorcolumn=80
+set colorcolumn=80
 set signcolumn=yes
 
 call plug#begin('~/.vim/plugged')
@@ -36,9 +36,10 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-" Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/seoul256.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
+Plug 'psliwka/vim-smoothie'
 " Plug 'davidhalter/jedi-vim',
 Plug 'Iron-E/nvim-libmodal'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -47,7 +48,7 @@ Plug 'plasticboy/vim-markdown'
 call plug#end()
 
 
-let g:NERDTreeWinSize=25
+let g:NERDTreeWinSize=20
 " let g:seoul256_background = 233
 " color seoul256
 

@@ -25,7 +25,7 @@ pip install -U jedi-language-server
 ```
 Install coc dependencies. 
 ```
-:CocInstall coc-jedi coc-json coc-pairs coc-go
+:CocInstall coc-jedi coc-json coc-pairs
 ```
 
 

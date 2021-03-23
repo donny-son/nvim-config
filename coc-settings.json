@@ -12,6 +12,5 @@
     "python.autoComplete.addBrackets": true,
     "python.jediEnabled": true,
     "python.linting.pylintEnabled": true,
-    "python.linting.pylintArgs": ["--load-plugins", "pylint_django"], 
-    "go.enable": true
+    "python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
 }
