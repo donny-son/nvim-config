@@ -1,16 +1,22 @@
 set nocompatible              " required
-filetype off                  " required
-syntax on
+filetype plugin indent on     " required
+syntax enable
+set mouse=a
 set hidden
+set noimd
 set nohlsearch
 set cursorline
 set noerrorbells
 set ruler
 set incsearch
 set encoding=utf-8
+set conceallevel=0
+set cmdheight=2
+set fileencoding=utf-8
 set smartindent
 set nu
-set clipboard=unnamed
+set clipboard=unnamedplus
+set t_Co=256
 set splitbelow
 set splitright
 set foldmethod=indent
@@ -20,42 +26,38 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
+set updatetime=300
+set formatoptions-=cro
 set fileformat=unix
 set ruler
 set incsearch
 set termguicolors
 set scrolloff=30
-<<<<<<< HEAD
 set colorcolumn=80
-=======
-" set textwidth=80
-" set colorcolumn=80
->>>>>>> 939104b480165ddd42b00f08f16bc9474fac0e27
 set signcolumn=yes
 
 call plug#begin('~/.vim/plugged')
 Plug 'rstacruz/vim-closer'
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'scrooloose/nerdtree'
 Plug 'nvim-lua/popup.nvim'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'junegunn/seoul256.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ap/vim-css-color'
+Plug 'danilo-augusto/vim-afterglow'
 Plug 'jiangmiao/auto-pairs'
 Plug 'psliwka/vim-smoothie'
-" Plug 'davidhalter/jedi-vim',
-Plug 'Iron-E/nvim-libmodal'
+Plug 'junegunn/vim-easy-align'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'Iron-E/nvim-typora'
+Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 call plug#end()
 
 
-let g:NERDTreeWinSize=20
-" let g:seoul256_background = 233
-" color seoul256
-
+let g:NERDTreeWinSize=35
+colorscheme afterglow
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -82,14 +84,36 @@ noremap <Leader>y "*y
 noremap <Leader>p "*p
 noremap <Leader>Y "+y
 noremap <Leader>P "+p
-noremap <Leader>r :resize +8<CR>
-noremap <Leader>R :resize -8<CR>
-noremap <Leader>v :vertical resize +8<CR>
-noremap <Leader>V :vertical resize -8<CR>
-nnoremap <C-R> :w <CR> :sp <CR> :term python % <CR>
+noremap <C-k> :resize +4<CR>
+noremap <C-j> :resize -4<CR>
+noremap <C-h> :vertical resize -4<CR>
+noremap <C-l> :vertical resize +4<CR>
+
+
+" Set uname
+let uname = substitute(system('uname'), '\n', '', '')
+" R, Python PATH
+if uname == 'Darwin'
+    let g:python3_host_prog = expand("/opt/anaconda3/bin/python3")
+    let R_path="/Library/Frameworks/R.framework/Resources/bin"
+else
+    let R_path="/usr/bin"
+endif
+nnoremap <C-R> :w <CR> :sp <CR> :term python3 % <CR>
 nnoremap <C-W> :bd!<CR>
 
 
-autocmd vimenter * NERDTree
+" EasyAlign
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" autocmd vimenter * NERDTree
 autocmd BufRead *.lyx set syntax=lyx foldmethod=syntax foldcolumn=3
 autocmd BufRead *.lyx syntax sync fromstart
+
+au! BufWritePost $MYVIMRC source %
+
+" OPEN IN VSCODE
+:command! OpenCwdInVSCode exe "silent !code '" . getcwd() . "' --goto '" . expand("%") . ":" . line(".") . ":" . col(".") . "'" | redraw!
