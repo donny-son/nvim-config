@@ -42,7 +42,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'nvim-lua/popup.nvim'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ap/vim-css-color'
 Plug 'danilo-augusto/vim-afterglow'
