@@ -3,6 +3,10 @@ filetype plugin indent on     " required
 syntax enable
 set mouse=a
 set hidden
+set nobackup
+set nowritebackup
+set cmdheight=2
+set shortmess+=c
 set noimd
 set nohlsearch
 set cursorline
@@ -11,7 +15,6 @@ set ruler
 set incsearch
 set encoding=utf-8
 set conceallevel=0
-set cmdheight=2
 set fileencoding=utf-8
 set smartindent
 set nu
@@ -35,6 +38,8 @@ set termguicolors
 set scrolloff=30
 set colorcolumn=80
 set signcolumn=yes
+
+
 
 call plug#begin('~/.vim/plugged')
 Plug 'rust-lang/rust.vim'
@@ -88,6 +93,41 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>q :close<CR>
 
 " COC Tab Completion
+" use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -106,3 +146,9 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:LanguageClient_serverCommands = {
     \ 'sh': ['bash-language-server', 'start']
     \ }
+
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
