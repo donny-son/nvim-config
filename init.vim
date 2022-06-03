@@ -37,82 +37,72 @@ set colorcolumn=80
 set signcolumn=yes
 
 call plug#begin('~/.vim/plugged')
+Plug 'rust-lang/rust.vim'
+
+" Fuzzy finder
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+" Completer
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" General Plugins
 Plug 'rstacruz/vim-closer'
 Plug 'scrooloose/nerdtree'
-Plug 'nvim-lua/popup.nvim'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ap/vim-css-color'
 Plug 'danilo-augusto/vim-afterglow'
 Plug 'jiangmiao/auto-pairs'
 Plug 'psliwka/vim-smoothie'
+Plug 'pangloss/vim-javascript'
 Plug 'junegunn/vim-easy-align'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 call plug#end()
 
-
+" General Settings
 let g:NERDTreeWinSize=35
 colorscheme afterglow
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 let python_highlight_all=1
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 let mapleader=" "
 
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+" RESIZE PANE KEYMAPS
+noremap <C-k> :resize +4<CR>
+noremap <C-j> :resize -4<CR>
+noremap <C-h> :vertical resize -4<CR>
+noremap <C-l> :vertical resize +4<CR>
+
+" PYTHON KEYMAPS
+nnoremap <C-P> :w <CR> :sp <CR> :term python3 % <CR>
+
+" NERDTree KEYMAPS
 nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>q :close<CR>
-noremap <Leader>y "*y
-noremap <Leader>p "*p
-noremap <Leader>Y "+y
-noremap <Leader>P "+p
-noremap <C-k> :resize +4<CR>
-noremap <C-j> :resize -4<CR>
-noremap <C-h> :vertical resize -4<CR>
-noremap <C-l> :vertical resize +4<CR>
 
+" COC Tab Completion
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
 
-" Set uname
-let uname = substitute(system('uname'), '\n', '', '')
-" R, Python PATH
-if uname == 'Darwin'
-    let g:python3_host_prog = expand("/opt/anaconda3/bin/python3")
-    let R_path="/Library/Frameworks/R.framework/Resources/bin"
-else
-    let R_path="/usr/bin"
-endif
-nnoremap <C-R> :w <CR> :sp <CR> :term python3 % <CR>
-nnoremap <C-W> :bd!<CR>
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
 
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" EasyAlign
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-" autocmd vimenter * NERDTree
-autocmd BufRead *.lyx set syntax=lyx foldmethod=syntax foldcolumn=3
-autocmd BufRead *.lyx syntax sync fromstart
-
-au! BufWritePost $MYVIMRC source %
-
-" OPEN IN VSCODE
-:command! OpenCwdInVSCode exe "silent !code '" . getcwd() . "' --goto '" . expand("%") . ":" . line(".") . ":" . col(".") . "'" | redraw!
+" Bash
+let g:LanguageClient_serverCommands = {
+    \ 'sh': ['bash-language-server', 'start']
+    \ }
