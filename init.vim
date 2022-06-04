@@ -11,6 +11,7 @@ set noimd
 set nohlsearch
 set cursorline
 set noerrorbells
+set noswapfile
 set ruler
 set incsearch
 set encoding=utf-8
@@ -63,9 +64,12 @@ Plug 'psliwka/vim-smoothie'
 Plug 'pangloss/vim-javascript'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " General Settings
@@ -148,3 +152,5 @@ let g:LanguageClient_serverCommands = {
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
+" Coc Explorer
+:nmap <space>e <Cmd>CocCommand explorer<CR>
