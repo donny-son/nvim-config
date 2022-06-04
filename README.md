@@ -21,7 +21,7 @@ Install all plugins by `:PlugInstall` in nvim.
 Install coc extensions for python development.
 
 ```
-:CocInstall coc-pyright coc-json coc-pairs
+:CocInstall coc-pyright coc-json coc-pairs coc-explorer coc-tsserver
 ```
 
 Configure `coc-settings.json`. 
