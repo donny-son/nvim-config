@@ -12,6 +12,7 @@ set nohlsearch
 set cursorline
 set noerrorbells
 set ruler
+set noswapfile
 set incsearch
 set encoding=utf-8
 set conceallevel=0
