@@ -1,8 +1,7 @@
 {
     // python
     "python.pythonPath": "python",
-    "python.venvPath": "$HOME/.cache/pypoetry/virtualenvs/",
-    "python.analysis.diagnosticMode" : "workspace",
+    "python.venvPath": "$HOME/Library/Caches/pypoetry/virtualenvs/",
 
     // explorer
     "explorer.width": 30,
