@@ -52,9 +52,6 @@ Plug 'nvim-telescope/telescope.nvim'
 " Completer
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Python Related
-" Plug 'sansyrox/vim-python-virtualenv'
-
 " General Plugins
 Plug 'rstacruz/vim-closer'
 Plug 'scrooloose/nerdtree'
@@ -69,9 +66,6 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 call plug#end()
-
-" Python related
-" let g:python3_host_prog='/usr/bin/python3'
 
 " General Settings
 let g:NERDTreeWinSize=35
