@@ -54,6 +54,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " General Plugins
+" General Plugins
 Plug 'rstacruz/vim-closer'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -153,4 +154,8 @@ let g:LanguageClient_serverCommands = {
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Coc Explorer
-:nmap <space>e <Cmd>CocCommand explorer<CR>
+nmap <space>e <Cmd>CocCommand explorer<CR>
+
+" fzf files
+nmap <leader>p :Files<CR>
+
