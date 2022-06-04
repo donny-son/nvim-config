@@ -54,6 +54,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " General Plugins
+" General Plugins
 Plug 'rstacruz/vim-closer'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -64,9 +65,12 @@ Plug 'psliwka/vim-smoothie'
 Plug 'pangloss/vim-javascript'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " General Settings
@@ -148,4 +152,10 @@ let g:LanguageClient_serverCommands = {
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Coc Explorer
+nmap <space>e <Cmd>CocCommand explorer<CR>
+
+" fzf files
+nmap <leader>p :Files<CR>
 
