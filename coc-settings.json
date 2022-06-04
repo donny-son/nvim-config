@@ -1,6 +1,6 @@
 {
     // python
     "python.pythonPath": "python",
-    "python.venvPath": "CHECK_POETRY_VIRTUALENVS_DIRECTORY",
+    "python.venvPath": "$HOME/Library/Caches/pypoetry/virtualenvs/",
     "python.analysis.diagnosticMode" : "workspace"
 }
