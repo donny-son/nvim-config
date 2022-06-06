@@ -52,10 +52,11 @@ source $HOME/.config/nvim/formatting.vim
 source $HOME/.config/nvim/prettythings.vim
 source $HOME/.config/nvim/fzf.vim
 source $HOME/.config/nvim/languages.vim
-source $HOME/.config/nvim/fugitive.vim
+" source $HOME/.config/nvim/fugitive.vim
 source $HOME/.config/nvim/lines.vim
 source $HOME/.config/nvim/filemanagement.vim
 source $HOME/.config/nvim/panemanagement.vim
+source $HOME/.config/nvim/debugging.vim
 
 call plug#end()
 
