@@ -40,8 +40,9 @@ set ruler
 set incsearch
 set termguicolors
 set scrolloff=30
-set colorcolumn=80
+set colorcolumn=88
 set signcolumn=yes
+set noshowmode " use vim-airline
 
 call plug#begin('~/.vim/plugged')
 
@@ -52,7 +53,8 @@ source $HOME/.config/nvim/prettythings.vim
 source $HOME/.config/nvim/fzf.vim
 source $HOME/.config/nvim/languages.vim
 source $HOME/.config/nvim/fugitive.vim
-source $HOME/.config/nvim/bufferline.vim
+source $HOME/.config/nvim/lines.vim
+source $HOME/.config/nvim/filemanagement.vim
 
 call plug#end()
 
@@ -63,6 +65,6 @@ let g:LanguageClient_serverCommands = {
     \ 'sh': ['bash-language-server', 'start']
     \ }
 
-source $HOME/.config/nvim/bufferlineconfig.vim
+source $HOME/.config/nvim/lines-config.vim
 source $HOME/.config/nvim/keymaps.vim
 

@@ -10,6 +10,7 @@ noremap <C-h> :vertical resize -4<CR>
 noremap <C-l> :vertical resize +4<CR>
 
 nmap <leader>p :Files<CR>
+nmap <leader>P :Rg<CR>
 
 " These commands will navigate through buffers in order regardless of which mode you are using
 nnoremap <leader>n :BufferLineCycleNext<CR>
