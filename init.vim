@@ -1,5 +1,7 @@
-set nocompatible              " required
-filetype plugin indent on     " required
+set nocompatible              
+filetype on     
+filetype plugin on
+filetype plugin indent on
 syntax enable
 set mouse=a
 set hidden
@@ -10,6 +12,7 @@ set shortmess+=c
 set noimd
 set cursorline
 set noerrorbells
+set noswapfile
 set ruler
 set noswapfile
 set incsearch
@@ -48,6 +51,7 @@ source $HOME/.config/nvim/formatting.vim
 source $HOME/.config/nvim/prettythings.vim
 source $HOME/.config/nvim/fzf.vim
 source $HOME/.config/nvim/languages.vim
+source $HOME/.config/nvim/fugitive.vim
 source $HOME/.config/nvim/bufferline.vim
 
 call plug#end()
