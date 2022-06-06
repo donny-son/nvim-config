@@ -15,15 +15,6 @@ nmap <leader>p :Files<CR>
 nnoremap <leader>n :BufferLineCycleNext<CR>
 nnoremap <leader>b :BufferLineCyclePrev<CR>
 
-" These commands will move the current buffer backwards or forwards in the bufferline
-nnoremap <silent><mymap> :BufferLineMoveNext<CR>
-nnoremap <silent><mymap> :BufferLineMovePrev<CR>
-
-" These commands will sort buffers by directory, language, or a custom criteria
-nnoremap <silent>be :BufferLineSortByExtension<CR>
-nnoremap <silent>bd :BufferLineSortByDirectory<CR>
-nnoremap <silent><mymap> :lua require'bufferline'.sort_buffers_by(function (buf_a, buf_b) return buf_a.id < buf_b.id end)<CR>
-
 " Coc Explorer
 nmap <space>e <Cmd>CocCommand explorer<CR>
 
