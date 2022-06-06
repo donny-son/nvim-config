@@ -55,6 +55,7 @@ source $HOME/.config/nvim/languages.vim
 source $HOME/.config/nvim/fugitive.vim
 source $HOME/.config/nvim/lines.vim
 source $HOME/.config/nvim/filemanagement.vim
+source $HOME/.config/nvim/panemanagement.vim
 
 call plug#end()
 
@@ -66,5 +67,6 @@ let g:LanguageClient_serverCommands = {
     \ }
 
 source $HOME/.config/nvim/lines-config.vim
+source $HOME/.config/nvim/panemanagement-config.vim
 source $HOME/.config/nvim/keymaps.vim
 

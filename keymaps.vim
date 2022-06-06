@@ -15,6 +15,7 @@ nmap <leader>P :Rg<CR>
 " These commands will navigate through buffers in order regardless of which mode you are using
 nnoremap <leader>n :BufferLineCycleNext<CR>
 nnoremap <leader>b :BufferLineCyclePrev<CR>
+nnoremap <c-w> :bd<CR>
 
 " Coc Explorer
 nmap <space>e <Cmd>CocCommand explorer<CR>
@@ -55,11 +56,17 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>q :close<CR>
 
 " Black formatter
-nnoremap <buffer><silent> <c-q> <cmd>call Black()<cr>
+" nnoremap <buffer><silent> <c-q> <cmd>call Black()<cr>
 
 " Vim test
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
+
+" Pane Management
+nnoremap <leader>m :MaximizerToggle!<CR>
+nnoremap <c-q> :Ttoggle<CR>
+inoremap <c-q> <Esc>:Ttoggle<CR>
+tnoremap <c-q> <c-\><c-n>:Ttoggle<CR>
+
