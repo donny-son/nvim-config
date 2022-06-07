@@ -7,7 +7,7 @@ set mouse=a
 set hidden
 set nobackup
 set nowritebackup
-set cmdheight=2
+set cmdheight=1
 set shortmess+=c
 set noimd
 set cursorline
@@ -69,5 +69,6 @@ let g:LanguageClient_serverCommands = {
 
 source $HOME/.config/nvim/lines-config.vim
 source $HOME/.config/nvim/panemanagement-config.vim
+source $HOME/.config/nvim/debugging-config.vim
 source $HOME/.config/nvim/keymaps.vim
 
