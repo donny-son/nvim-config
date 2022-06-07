@@ -46,28 +46,32 @@ set noshowmode " use vim-airline
 
 call plug#begin('~/.vim/plugged')
 
-source $HOME/.config/nvim/coc.vim
-source $HOME/.config/nvim/nerdtree.vim
-source $HOME/.config/nvim/formatting.vim
-source $HOME/.config/nvim/prettythings.vim
-source $HOME/.config/nvim/fzf.vim
-source $HOME/.config/nvim/languages.vim
-source $HOME/.config/nvim/lines.vim
-source $HOME/.config/nvim/filemanagement.vim
-source $HOME/.config/nvim/panemanagement.vim
-source $HOME/.config/nvim/debugging.vim
+source $HOME/.config/nvim/plugins/coc.vim
+" source $HOME/.config/nvim/plugins/nerdtree.vim
+source $HOME/.config/nvim/plugins/formatting.vim
+source $HOME/.config/nvim/plugins/prettythings.vim
+source $HOME/.config/nvim/plugins/fzf.vim
+source $HOME/.config/nvim/plugins/languages.vim
+source $HOME/.config/nvim/plugins/lines.vim
+source $HOME/.config/nvim/plugins/filemanagement.vim
+source $HOME/.config/nvim/plugins/panemanagement.vim
+source $HOME/.config/nvim/plugins/debugging.vim
 
 call plug#end()
 
 colorscheme afterglow
+
 
 " Bash
 let g:LanguageClient_serverCommands = {
     \ 'sh': ['bash-language-server', 'start']
     \ }
 
-source $HOME/.config/nvim/lines-config.vim
-source $HOME/.config/nvim/panemanagement-config.vim
-source $HOME/.config/nvim/debugging-config.vim
-source $HOME/.config/nvim/keymaps.vim
+source $HOME/.config/nvim/post-plugins/lines-config.vim
+source $HOME/.config/nvim/post-plugins/panemanagement-config.vim
+source $HOME/.config/nvim/post-plugins/debugging-config.vim
+source $HOME/.config/nvim/post-plugins/telescope-config.vim
+source $HOME/.config/nvim/post-plugins/keymaps.vim
+
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | exe 'Telescope find_files' | endif
 

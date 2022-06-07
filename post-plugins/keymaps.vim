@@ -9,15 +9,23 @@ noremap <C-j> :resize -4<CR>
 noremap <C-h> :vertical resize -4<CR>
 noremap <C-l> :vertical resize +4<CR>
 
-nmap <c-p> :Files<CR>
-nmap <leader>p :Rg<CR>
-inoremap <expr> <c-x><c-f> fzf#vim#complete#path(
-    \ "find . -path '*/\.*' -prune -o -print \| sed '1d;s:^..::'",
-    \ fzf#wrap({'dir': expand('%:p:h')}))
-if has('nvim')
-    au! TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
-    au! FileType fzf tunmap <buffer> <Esc>
-endif
+" telescope 
+nnoremap <leader>pf :Telescope find_files<CR>
+nnoremap <leader>pg :Telescope live_grep<CR>
+nnoremap <leader>pb :Telescope buffers<CR>
+nnoremap <leader>ph :Telescope help_tags<CR>
+nnoremap <leader>ps :Telescope git_status<CR>
+
+" vim-fzf
+" nmap <c-p> :Files<CR>
+" nmap <leader>p :Rg<CR>
+" inoremap <expr> <c-x><c-f> fzf#vim#complete#path(
+"     \ "find . -path '*/\.*' -prune -o -print \| sed '1d;s:^..::'",
+"     \ fzf#wrap({'dir': expand('%:p:h')}))
+" if has('nvim')
+"     au! TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+"     au! FileType fzf tunmap <buffer> <Esc>
+" endif
 
 " These commands will navigate through buffers in order regardless of which mode you are using
 nnoremap <c-n> :BufferLineCycleNext<CR>
@@ -55,7 +63,7 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
-" NERDTree KEYMAPS
+" Pane management 
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>j :wincmd j<CR>
