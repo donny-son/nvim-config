@@ -1,5 +1,4 @@
 Plug 'szw/vim-maximizer'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'tpope/vim-commentary'
 Plug 'sbdchd/neoformat'
 Plug 'kassio/neoterm'

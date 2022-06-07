@@ -10,7 +10,7 @@ noremap <C-h> :vertical resize -4<CR>
 noremap <C-l> :vertical resize +4<CR>
 
 nmap <c-p> :Files<CR>
-nmap <leader>ff :Rg<CR>
+nmap <leader>p :Rg<CR>
 inoremap <expr> <c-x><c-f> fzf#vim#complete#path(
     \ "find . -path '*/\.*' -prune -o -print \| sed '1d;s:^..::'",
     \ fzf#wrap({'dir': expand('%:p:h')}))
@@ -52,8 +52,8 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-" xmap <leader>f  <Plug>(coc-format-selected)
-" nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
 " NERDTree KEYMAPS
 nnoremap <leader>h :wincmd h<CR>
@@ -79,24 +79,11 @@ nnoremap <c-q> :Ttoggle<CR>
 inoremap <c-q> <Esc>:Ttoggle<CR>
 tnoremap <c-q> <c-\><c-n>:Ttoggle<CR>
 
-" Debugging with vimspector
-" nnoremap <leader>da :call vimspector#Launch()<CR>
-" nnoremap <leader>dx :call vimspector#Reset()<CR>
-" 
-" nnoremap <S-k> :call vimspector#StepOut()<CR>
-" nnoremap <S-l> :call vimspector#StepInto()<CR>
-" nnoremap <S-j> :call vimspector#StepOver()<CR>
-" 
-" nnoremap <leader>dr :call vimspector#Restart()<CR>
-" nnoremap <leader>dn :call vimspector#Continue()<CR>
-" nnoremap <leader>dc :call vimspector#RunToCursor()<CR>
-" nnoremap <leader>db :call vimspector#ToggleBreakpoint()<CR>
-" nnoremap <leader>de :call vimspector#ToggleConditionalBreakpoint()<CR>
-" nnoremap <leader>dX :call vimspector#ClearBreakpoints()<CR>
-nnoremap <leader>dh :lua require'dap'.toggle_breakpoint()<CR>
-nnoremap <S-k> :lua require'dap'.step_out()<CR>
-nnoremap <S-l> :lua require'dap'.step_into()<CR>
-nnoremap <S-j> :lua require'dap'.step_over()<CR>
+" debugger
+nnoremap <leader>b :lua require'dap'.toggle_breakpoint()<CR>
+" nnoremap <S-k> :lua require'dap'.step_out()<CR>
+" nnoremap <S-l> :lua require'dap'.step_into()<CR>
+" nnoremap <S-j> :lua require'dap'.step_over()<CR>
 nnoremap <leader>ds :lua require'dap'.stop()<CR>
 nnoremap <leader>dn :lua require'dap'.continue()<CR>
 nnoremap <leader>dk :lua require'dap'.up()<CR>
