@@ -1,36 +1,22 @@
 let mapleader=" "
 
-nnoremap <leader>F :Neoformat prettier<CR>
-
 noremap <leader>gf :e <cfile><CR>
 
-noremap <C-k> :resize +4<CR>
-noremap <C-j> :resize -4<CR>
-noremap <C-h> :vertical resize -4<CR>
-noremap <C-l> :vertical resize +4<CR>
+nnoremap <leader>rK :resize +5<CR>
+nnoremap <leader>rJ :resize -5<CR>
+nnoremap <leader>rj :vertical resize -5<CR>
+nnoremap <leader>rk :vertical resize +5<CR>
 
 " telescope 
-nnoremap <leader>pf :Telescope find_files<CR>
-nnoremap <leader>pg :Telescope live_grep<CR>
-nnoremap <leader>pb :Telescope buffers<CR>
-nnoremap <leader>ph :Telescope help_tags<CR>
-nnoremap <leader>ps :Telescope git_status<CR>
-
-" vim-fzf
-" nmap <c-p> :Files<CR>
-" nmap <leader>p :Rg<CR>
-" inoremap <expr> <c-x><c-f> fzf#vim#complete#path(
-"     \ "find . -path '*/\.*' -prune -o -print \| sed '1d;s:^..::'",
-"     \ fzf#wrap({'dir': expand('%:p:h')}))
-" if has('nvim')
-"     au! TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
-"     au! FileType fzf tunmap <buffer> <Esc>
-" endif
+nnoremap <leader>ff :Telescope find_files<CR>
+nnoremap <leader>fg :Telescope live_grep<CR>
+nnoremap <leader>fb :Telescope buffers<CR>
+nnoremap <leader>fh :Telescope help_tags<CR>
+nnoremap <leader>fs :Telescope git_status<CR>
 
 " These commands will navigate through buffers in order regardless of which mode you are using
-nnoremap <c-n> :BufferLineCycleNext<CR>
-nnoremap <c-b> :BufferLineCyclePrev<CR>
-nnoremap <c-w> :bd<CR>
+nnoremap <leader>[ :BufferLineCycleNext<CR>
+nnoremap <leader>] :BufferLineCyclePrev<CR>
 
 " Coc Explorer
 nmap <space>e <Cmd>CocCommand explorer<CR>
@@ -64,10 +50,10 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 " Pane management 
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>l :wincmd l<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
+" nnoremap <leader>h :wincmd h<CR>
+" nnoremap <leader>l :wincmd l<CR>
+" nnoremap <leader>j :wincmd j<CR>
+" nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>q :close<CR>
 
 " Black formatter

@@ -43,11 +43,11 @@ set scrolloff=30
 set colorcolumn=88
 set signcolumn=yes
 set noshowmode " use vim-airline
+set langmap=ㅁa,ㅠb,ㅊc,ㅇd,ㄷe,ㄹf,ㅎg,ㅗh,ㅑi,ㅓj,ㅏk,ㅣl,ㅡm,ㅜn,ㅐo,ㅔp,ㅂq,ㄱr,ㄴs,ㅅt,ㅕu,ㅍv,ㅈw,ㅌx,ㅛy,ㅋz
 
 call plug#begin('~/.vim/plugged')
 
 source $HOME/.config/nvim/plugins/coc.vim
-" source $HOME/.config/nvim/plugins/nerdtree.vim
 source $HOME/.config/nvim/plugins/formatting.vim
 source $HOME/.config/nvim/plugins/prettythings.vim
 source $HOME/.config/nvim/plugins/fzf.vim
