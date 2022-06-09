@@ -48,7 +48,10 @@ set langmap=ㅁa,ㅠb,ㅊc,ㅇd,ㄷe,ㄹf,ㅎg,ㅗh,ㅑi,ㅓj,ㅏk,ㅣl,ㅡm,ㅜ
 
 call plug#begin('~/.vim/plugged')
 
-" source $HOME/.config/nvim/plugins/coc.vim
+" file explorer
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
+
 source $HOME/.config/nvim/plugins/formatting.vim
 source $HOME/.config/nvim/plugins/prettythings.vim
 source $HOME/.config/nvim/plugins/fzf.vim
@@ -87,6 +90,7 @@ source $HOME/.config/nvim/post-plugins/panemanagement-config.vim
 source $HOME/.config/nvim/post-plugins/telescope-config.vim
 source $HOME/.config/nvim/post-plugins/keymaps.vim
 
+lua require('nvim-tree-configuration')
 lua require('buffer-configuration')
 lua require('lsp-configuration')
 lua require('debug-configuration')

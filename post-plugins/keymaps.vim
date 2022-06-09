@@ -20,16 +20,19 @@ nnoremap <leader>fs :Telescope git_status<CR>
 nmap <leader><Tab> :BufferLineCycleNext<CR>
 nmap <leader><S-Tab> :BufferLineCyclePrev<CR>
 
-" Coc Explorer
-" nmap <space>e <Cmd>CocCommand explorer<CR>
-
-" Coc tab completion
-" inoremap <silent><expr> <Tab>
-"        \ pumvisible() ? "\<C-n>" :
-"        \ <SID>check_back_space() ? "\<Tab>" :
-"        \ coc#refresh()
-" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Explorer
+" vimrc
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
+" More available functions:
+" NvimTreeOpen
+" NvimTreeClose
+" NvimTreeFocus
+" NvimTreeFindFileToggle
+" NvimTreeResize
+" NvimTreeCollapse
+" NvimTreeCollapseKeepBuffers
 
 " Buffer management 
 nnoremap <leader>q :bd<CR>

@@ -16,26 +16,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 Install all plugins by `:PlugInstall` in nvim.
 
-### Coc Settings(`coc-settings.json`)
+### System Dependencies
 
-Install coc extensions for python development.
-
-```
-:CocInstall coc-pyright coc-json coc-pairs coc-explorer coc-tsserver
-```
-
-Configure `coc-settings.json`. 
-The virtual environment path must be set differently since Poetry behaves differently per system.
-
-**MacOS** 
-
-```
-"python.venvPath": "$HOME/Library/Caches/pypoetry/virtualenvs/"
-```
-
-**Linux** 
-
-```
-"python.venvPath": "$HOME/.cache/pypoetry/virtualenvs/"
-```
-
+- lsp server for each language
+- debugger adapter for each language
