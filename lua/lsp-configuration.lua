@@ -117,4 +117,3 @@ cmp.setup.filetype('gitcommit', {
   })
 })
 
-
