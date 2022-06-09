@@ -1,5 +1,15 @@
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+require'cmp'.setup {
+  sources = {
+    { name = 'emoji' }
+  },
+  insert = true,
+}
+
+-- bash
+require'lspconfig'.bashls.setup{}
+
 -- markdown
 require'lspconfig'.prosemd_lsp.setup {
   capabilities = capabilities,
@@ -44,17 +54,16 @@ require'lspconfig'.pyright.setup{
     end,
 }
 
+-- pictograms for completion
 vim.opt.completeopt = {"menu", "menuone", "noselect"}
-
 local ok, lspkind = pcall(require, "lspkind")
 if not ok then
   return
 end
-
 lspkind.init()
 
+-- completion configuration
 local cmp = require'cmp'
-
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -74,8 +83,8 @@ cmp.setup({
     }
   },
   window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
+    -- completion = cmp.config.window.bordered(),
+    -- documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
