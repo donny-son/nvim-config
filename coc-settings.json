@@ -1,8 +1,4 @@
 {
-    // python
-    "python.pythonPath": "python",
-    "python.venvPath": "$HOME/.cache/pypoetry/virtualenvs/",
-    "python.analysis.diagnosticMode": "workspace",
     // explorer
     "explorer.width": 30,
     "explorer.icon.enableNerdfont": true,
@@ -11,5 +7,8 @@
         "prisma",
         "json",
         "markdown"
-    ]
+    ],
+    "suggest.floatEnable": false,
+    "diagnostic.messageTarget": "echo",
+    "hover.target": "echo"
 }

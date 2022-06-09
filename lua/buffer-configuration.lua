@@ -1,4 +1,3 @@
-lua << EOF
 require('bufferline').setup{
   options = {
     mode = "buffers", -- set to "tabs" to only show tabpages instead
@@ -20,7 +19,7 @@ require('bufferline').setup{
     max_name_length = 18,
     max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
     tab_size = 18,
-    diagnostics = "coc", -- | "nvim_lsp" | "coc",
+    diagnostics = "nvim_lsp", -- | "nvim_lsp" | "coc",
     diagnostics_update_in_insert = false,
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
       return "("..count..")"
@@ -59,5 +58,3 @@ require('bufferline').setup{
     always_show_bufferline = true
   }
 }
-EOF
-

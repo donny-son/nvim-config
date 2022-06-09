@@ -3,6 +3,7 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 syntax enable
+set nohlsearch
 set mouse=a
 set hidden
 set nobackup
@@ -47,7 +48,7 @@ set langmap=ㅁa,ㅠb,ㅊc,ㅇd,ㄷe,ㄹf,ㅎg,ㅗh,ㅑi,ㅓj,ㅏk,ㅣl,ㅡm,ㅜ
 
 call plug#begin('~/.vim/plugged')
 
-source $HOME/.config/nvim/plugins/coc.vim
+" source $HOME/.config/nvim/plugins/coc.vim
 source $HOME/.config/nvim/plugins/formatting.vim
 source $HOME/.config/nvim/plugins/prettythings.vim
 source $HOME/.config/nvim/plugins/fzf.vim
@@ -56,6 +57,21 @@ source $HOME/.config/nvim/plugins/lines.vim
 source $HOME/.config/nvim/plugins/filemanagement.vim
 source $HOME/.config/nvim/plugins/panemanagement.vim
 source $HOME/.config/nvim/plugins/debugging.vim
+
+Plug 'sheerun/vim-polyglot' " language pack
+
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'onsails/lspkind.nvim'
+
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
+
+Plug 'dense-analysis/ale'
 
 call plug#end()
 
@@ -67,11 +83,13 @@ let g:LanguageClient_serverCommands = {
     \ 'sh': ['bash-language-server', 'start']
     \ }
 
-source $HOME/.config/nvim/post-plugins/lines-config.vim
 source $HOME/.config/nvim/post-plugins/panemanagement-config.vim
-source $HOME/.config/nvim/post-plugins/debugging-config.vim
 source $HOME/.config/nvim/post-plugins/telescope-config.vim
 source $HOME/.config/nvim/post-plugins/keymaps.vim
+
+lua require('buffer-configuration')
+lua require('lsp-configuration')
+lua require('debug-configuration')
 
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | exe 'Telescope find_files' | endif
 
