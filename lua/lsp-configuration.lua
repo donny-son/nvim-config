@@ -7,6 +7,9 @@ require'cmp'.setup {
   insert = true,
 }
 
+-- sql
+require'lspconfig'.sqls.setup{}
+
 -- bash
 require'lspconfig'.bashls.setup{}
 
