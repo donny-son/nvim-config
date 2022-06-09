@@ -1,9 +1,23 @@
-vim.fn.sign_define('DapBreakpoint', {text='🟥', texthl='', linehl='', numhl=''})
-vim.fn.sign_define('DapStopped', {text='⭐️', texthl='', linehl='', numhl=''})
+vim.keymap.set("n", "<leader>dy", ":lua require'dap'.step_out()<CR>")
+vim.keymap.set("n", "<leader>du", ":lua require'dap'.step_over()<CR>")
+vim.keymap.set("n", "<leader>di", ":lua require'dap'.step_into()<CR>")
+vim.keymap.set("n", "<leader>do", ":lua require'dap'.continue()<CR>")
+vim.keymap.set("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>")
+vim.keymap.set("n", "<leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
+vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>")
+vim.keymap.set("n", "<leader>dq", ":lua require'dap'.terminate()<CR>")
 
-local dap = require('dap')
+vim.keymap.set("n", "<leader>tm", ":lua require('dap-python').test_method()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>tc", ":lua require('dap-python').test_class()<CR>", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>ts", "<ESC>:lua require('dap-python').debug_selection()<CR>", { noremap = true, silent = true })
+
 local venv = os.getenv("VIRTUAL_ENV");
 
+local dappython = require('dap-python');
+dappython.setup(string.format("%s/bin/python",venv))
+dappython.test_runner = 'pytest'
+
+local dap = require('dap');
 dap.adapters.python = {
   type = 'executable';
   command = string.format("%s/bin/python",venv);
@@ -12,18 +26,14 @@ dap.adapters.python = {
 
 dap.configurations.python = {
   {
-    -- The first three options are required by nvim-dap
+    -- for nvim-dap
     type = 'python'; -- the type here established the link to the adapter definition: `dap.adapters.python`
     request = 'launch';
-    name = "Launch file";
+    name = "Launch File";
 
-    -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
-
-    program = "${file}"; -- This configuration will launch the current file if used.
+    -- for debugpy
+    program = "${file}";
     pythonPath = function()
-      -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
-      -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
-      -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
       local cwd = vim.fn.getcwd()
       if vim.fn.executable(venv .. '/bin/python') == 1 then
         return venv .. '/bin/python'
@@ -38,3 +48,23 @@ dap.configurations.python = {
   },
 }
 
+
+-- delete vscode launch.json trailing comma
+require('dap.ext.vscode').load_launchjs()
+
+vim.fn.sign_define('DapBreakpoint', {text='🟥', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapStopped', {text='⭐️', texthl='', linehl='', numhl=''})
+
+require('dapui').setup()
+require('nvim-dap-virtual-text').setup()
+
+local dapui = require("dapui")
+dap.listeners.after.event_initialized["dapui_config"] = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+  dapui.close()
+end
