@@ -12,6 +12,7 @@ nnoremap <leader><Space> :Telescope find_files<CR>
 nnoremap <leader>ff :Telescope live_grep<CR>
 nnoremap <leader>fb :Telescope buffers<CR>
 nnoremap <leader>fd :Telescope diagnostics<CR>
+nnoremap <leader>fk :Telescope keymaps<CR>
 nnoremap <leader>fn :Telescope current_buffer_fuzzy_find<CR>
 nnoremap <leader>fh :Telescope help_tags<CR>
 nnoremap <leader>fg :Telescope git_status<CR>

@@ -1,12 +1,28 @@
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
--- sql
+-- json, html, css, eslint >> npm i -g vscode-langservers-extracted
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+require'lspconfig'.jsonls.setup {
+  capabilities = capabilities,
+}
+require'lspconfig'.html.setup {
+  capabilities = capabilities,
+}
+require'lspconfig'.cssls.setup {
+  capabilities = capabilities,
+}
+require'lspconfig'.eslint.setup{}
+
+-- R >> install.packages("languageserver")
+require'lspconfig'.r_language_server.setup{}
+
+-- sqls >> go get github.com/lighttiger2505/sqls
 require'lspconfig'.sqls.setup{}
 
--- bash
+-- bash >> npm i -g bash-language-server
 require'lspconfig'.bashls.setup{}
 
--- markdown
+-- markdown >> cargo install prosemd-lsp
 require'lspconfig'.prosemd_lsp.setup {
   capabilities = capabilities,
   on_attach = function()
@@ -28,6 +44,8 @@ tabnine:setup({
 })
 
 -- lua
+  -- mac >> brew install lua-language-server
+  -- linux >> download binaries from https://github.com/sumneko/lua-language-server/releases.
 require'lspconfig'.sumneko_lua.setup {
   capabilities = capabilities,
   settings = {
@@ -50,7 +68,7 @@ require'lspconfig'.sumneko_lua.setup {
   end,
 }
 
--- python(pyright)
+-- python(pyright) >> npm i -g pyright
 require'lspconfig'.pyright.setup{
     capabilities = capabilities,
     on_attach = function()
