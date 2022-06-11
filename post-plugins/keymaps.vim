@@ -27,7 +27,6 @@ tnoremap <c-p> <c-\><c-n>:NvimTreeToggle<CR>
 
 " Buffer management 
 nnoremap <leader> q :bd<CR>
-nnoremap <leader> mx :MaximizerToggle!<CR>
 
 " terminal
 nnoremap <c-q> :Ttoggle<CR>
