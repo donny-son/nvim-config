@@ -1,17 +1,23 @@
 -- nvim dap
-vim.keymap.set("n", "<leader>dh", ":lua require'dap'.continue()<CR>") -- start debugger
+vim.keymap.set("n", "<leader>dd", ":lua require'dap'.continue()<CR>") -- start debugger
+
+-- standard movements for stepping in and out
 vim.keymap.set("n", "<leader>dj", ":lua require'dap'.step_into()<CR>")
 vim.keymap.set("n", "<leader>dk", ":lua require'dap'.step_out()<CR>")
-vim.keymap.set("n", "<leader>dl", ":lua require'dap'.step_over()<CR>")
+
+-- debug "next" line
+vim.keymap.set("n", "<leader>dn", ":lua require'dap'.step_over()<CR>") -- next line
+
 vim.keymap.set("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>")
 vim.keymap.set("n", "<leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
+
 vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>")
 vim.keymap.set("n", "<leader>dq", ":lua require'dap'.terminate()<CR>")
 
 -- nvim dap python
 vim.keymap.set("n", "<leader>tm", ":lua require('dap-python').test_method()<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>tc", ":lua require('dap-python').test_class()<CR>", { noremap = true, silent = true })
-vim.keymap.set("v", "<leader>ts", "<ESC>:lua require('dap-python').debug_selection()<CR>", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>tv", "<ESC>:lua require('dap-python').debug_selection()<CR>", { noremap = true, silent = true })
 
 local venv = os.getenv("VIRTUAL_ENV");
 
@@ -49,7 +55,6 @@ dap.configurations.python = {
     end;
   },
 }
-
 
 -- delete vscode launch.json trailing comma
 require('dap.ext.vscode').load_launchjs()
