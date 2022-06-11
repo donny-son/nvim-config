@@ -2,10 +2,10 @@ let mapleader=" "
 
 noremap <leader>gf :e <cfile><CR>
 
-nnoremap <leader>rK :resize +8<CR>
-nnoremap <leader>rJ :resize -8<CR>
-nnoremap <leader>rj :vertical resize -8<CR>
-nnoremap <leader>rk :vertical resize +8<CR>
+nnoremap <leader>rK :resize +12<CR>
+nnoremap <leader>rJ :resize -12<CR>
+nnoremap <leader>rj :vertical resize -12<CR>
+nnoremap <leader>rk :vertical resize +12<CR>
 
 " telescope 
 nnoremap <leader><Space> :Telescope find_files<CR>
@@ -21,9 +21,8 @@ nmap <leader><Tab> :BufferLineCycleNext<CR>
 nmap <leader><S-Tab> :BufferLineCyclePrev<CR>
 
 " Explorer
-nnoremap <C-n> :NvimTreeToggle<CR>
-nnoremap <leader>r :NvimTreeRefresh<CR>
-nnoremap <leader>n :NvimTreeFindFile<CR>
+nnoremap <leader> pr :NvimTreeRefresh<CR>
+nnoremap <leader> pp :NvimTreeToggle<CR>
 " More available functions:
 " NvimTreeOpen
 " NvimTreeClose
