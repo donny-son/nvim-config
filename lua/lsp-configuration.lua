@@ -1,12 +1,5 @@
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-require'cmp'.setup {
-  sources = {
-    { name = 'emoji' }
-  },
-  insert = true,
-}
-
 -- sql
 require'lspconfig'.sqls.setup{}
 
@@ -19,6 +12,20 @@ require'lspconfig'.prosemd_lsp.setup {
   on_attach = function()
   end,
 }
+
+-- tabnine
+local tabnine = require('cmp_tabnine.config')
+tabnine:setup({
+	max_lines = 1000;
+	max_num_results = 20;
+	sort = true;
+	run_on_every_keystroke = true;
+	snippet_placeholder = '..';
+	ignored_file_types = { -- default is not to ignore
+		env = true,
+	};
+	show_prediction_strength = true;
+})
 
 -- lua
 require'lspconfig'.sumneko_lua.setup {
@@ -68,6 +75,7 @@ lspkind.init()
 -- completion configuration
 local cmp = require'cmp'
 cmp.setup({
+  insert = true,
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
@@ -82,6 +90,8 @@ cmp.setup({
         nvim_lua = "[lua]",
         path = "[path]",
         luasnip = "[snip]",
+        cmp_tabnine = "[AI]",
+        emoji = "[EMJI]",
       }
     }
   },
@@ -92,8 +102,8 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.abort(),
+    ['<C-s>'] = cmp.mapping.complete(),
+    ['<C-a>'] = cmp.mapping.abort(),
     ['<C-y>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Insert,
       select = true,
@@ -106,6 +116,8 @@ cmp.setup({
     { name = 'path' },
     { name = 'luasnip' },
     { name = 'buffer', keyword_length = 2 },
+ 	{ name = 'cmp_tabnine' },
+    { name = 'emoji' },
   })
 })
 

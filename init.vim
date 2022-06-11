@@ -79,6 +79,8 @@ Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-completion'
 Plug 'kristijanhusak/vim-dadbod-ui'
 
+Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+
 call plug#end()
 
 colorscheme afterglow
