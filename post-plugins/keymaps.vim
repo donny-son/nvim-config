@@ -21,7 +21,6 @@ nmap <leader><Tab> :BufferLineCycleNext<CR>
 nmap <leader><S-Tab> :BufferLineCyclePrev<CR>
 
 " Explorer
-" vimrc
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
@@ -50,10 +49,13 @@ inoremap <c-q> <Esc>:Ttoggle<CR>
 tnoremap <c-q> <c-\><c-n>:Ttoggle<CR>
 
 " debugger
-nnoremap <silent> <leader>dn :lua require('dap-python').test_method()<CR>
-nnoremap <silent> <leader>df :lua require('dap-python').test_class()<CR>
-vnoremap <silent> <leader>ds <ESC>:lua require('dap-python').debug_selection()<CR>
+nnoremap <silent> <leader>tm :lua require('dap-python').test_method()<CR>
+nnoremap <silent> <leader>tc :lua require('dap-python').test_class()<CR>
+vnoremap <silent> <leader>ts <ESC>:lua require('dap-python').debug_selection()<CR>
 
 " markdown
 nnoremap <leader>md :MarkDrawer<CR>
 nnoremap <leader>gy :Goyo<CR>
+
+" database
+nnoremap <leader>DB :DBUIToggle<CR>

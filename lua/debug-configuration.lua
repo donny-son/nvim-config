@@ -1,12 +1,14 @@
-vim.keymap.set("n", "<leader>dy", ":lua require'dap'.step_out()<CR>")
-vim.keymap.set("n", "<leader>du", ":lua require'dap'.step_over()<CR>")
-vim.keymap.set("n", "<leader>di", ":lua require'dap'.step_into()<CR>")
-vim.keymap.set("n", "<leader>do", ":lua require'dap'.continue()<CR>")
+-- nvim dap
+vim.keymap.set("n", "<leader>dh", ":lua require'dap'.continue()<CR>") -- start debugger
+vim.keymap.set("n", "<leader>dj", ":lua require'dap'.step_into()<CR>")
+vim.keymap.set("n", "<leader>dk", ":lua require'dap'.step_out()<CR>")
+vim.keymap.set("n", "<leader>dl", ":lua require'dap'.step_over()<CR>")
 vim.keymap.set("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>")
 vim.keymap.set("n", "<leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
 vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>")
 vim.keymap.set("n", "<leader>dq", ":lua require'dap'.terminate()<CR>")
 
+-- nvim dap python
 vim.keymap.set("n", "<leader>tm", ":lua require('dap-python').test_method()<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>tc", ":lua require('dap-python').test_class()<CR>", { noremap = true, silent = true })
 vim.keymap.set("v", "<leader>ts", "<ESC>:lua require('dap-python').debug_selection()<CR>", { noremap = true, silent = true })
@@ -15,7 +17,7 @@ local venv = os.getenv("VIRTUAL_ENV");
 
 local dappython = require('dap-python');
 dappython.setup(string.format("%s/bin/python",venv))
-dappython.test_runner = 'pytest'
+-- dappython.test_runner = 'pytest' -- defaults to 'unitttest'
 
 local dap = require('dap');
 dap.adapters.python = {
