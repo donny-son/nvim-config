@@ -72,6 +72,8 @@ Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'hrsh7th/cmp-emoji'
 Plug 'onsails/lspkind.nvim'
 
+Plug 'lukas-reineke/lsp-format.nvim'
+
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 
@@ -80,6 +82,8 @@ Plug 'kristijanhusak/vim-dadbod-completion'
 Plug 'kristijanhusak/vim-dadbod-ui'
 
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+
+Plug 'jalvesaq/Nvim-R', { 'branch': 'stable' }
 
 call plug#end()
 

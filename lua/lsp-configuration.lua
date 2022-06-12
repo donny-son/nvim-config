@@ -1,52 +1,78 @@
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
+vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { buffer = 0 })
+vim.keymap.set("n", "<leader>gj", vim.diagnostic.goto_next, { buffer = 0 })
+vim.keymap.set("n", "<leader>gk", vim.diagnostic.goto_prev, { buffer = 0 })
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = 0 })
+-- vim.keymap.set("n", "<leader>cd", vim.lsp.buf.code_action, {buffer=0})
+
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+-- formatting
+require 'lsp-format'.setup {}
+local on_attach = function(client)
+  require 'lsp-format'.on_attach(client)
+end
 
 -- json, html, css, eslint >> npm i -g vscode-langservers-extracted
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-require'lspconfig'.jsonls.setup {
+require 'lspconfig'.jsonls.setup {
   capabilities = capabilities,
+  on_attach = on_attach,
 }
-require'lspconfig'.html.setup {
+require 'lspconfig'.html.setup {
   capabilities = capabilities,
+  on_attach = on_attach,
+
 }
-require'lspconfig'.cssls.setup {
+require 'lspconfig'.cssls.setup {
   capabilities = capabilities,
+  on_attach = on_attach,
 }
-require'lspconfig'.eslint.setup{}
+require 'lspconfig'.eslint.setup {}
 
 -- R >> install.packages("languageserver")
-require'lspconfig'.r_language_server.setup{}
+require 'lspconfig'.r_language_server.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 
 -- sqls >> go get github.com/lighttiger2505/sqls
-require'lspconfig'.sqls.setup{}
+require 'lspconfig'.sqls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 
 -- bash >> npm i -g bash-language-server
-require'lspconfig'.bashls.setup{}
+require 'lspconfig'.bashls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 
 -- markdown >> cargo install prosemd-lsp
-require'lspconfig'.prosemd_lsp.setup {
+require 'lspconfig'.prosemd_lsp.setup {
   capabilities = capabilities,
-  on_attach = function()
-  end,
+  on_attach = on_attach,
 }
 
 -- tabnine
 local tabnine = require('cmp_tabnine.config')
 tabnine:setup({
-	max_lines = 1000;
-	max_num_results = 20;
-	sort = true;
-	run_on_every_keystroke = true;
-	snippet_placeholder = '..';
-	ignored_file_types = { -- default is not to ignore
-		env = true,
-	};
-	show_prediction_strength = true;
+  max_lines = 1000;
+  max_num_results = 20;
+  sort = true;
+  run_on_every_keystroke = true;
+  snippet_placeholder = '..';
+  ignored_file_types = { -- default is not to ignore
+    env = true,
+  };
+  show_prediction_strength = true;
 })
 
 -- lua
-  -- mac >> brew install lua-language-server
-  -- linux >> download binaries from https://github.com/sumneko/lua-language-server/releases.
-require'lspconfig'.sumneko_lua.setup {
+-- mac >> brew install lua-language-server
+-- linux >> download binaries from https://github.com/sumneko/lua-language-server/releases.
+require 'lspconfig'.sumneko_lua.setup {
   capabilities = capabilities,
   settings = {
     Lua = {
@@ -54,7 +80,7 @@ require'lspconfig'.sumneko_lua.setup {
         version = 'LuaJIT',
       },
       diagnostics = {
-        globals = {'vim'},
+        globals = { 'vim' },
       },
       workspace = {
         library = vim.api.nvim_get_runtime_file("", true),
@@ -64,26 +90,22 @@ require'lspconfig'.sumneko_lua.setup {
       },
     },
   },
-  on_attach = function()
-  end,
+  on_attach = on_attach,
 }
 
 -- python(pyright) >> npm i -g pyright
-require'lspconfig'.pyright.setup{
-    capabilities = capabilities,
-    on_attach = function()
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer=0})
-    vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, {buffer=0})
-    vim.keymap.set("n", "<leader>gj", vim.diagnostic.goto_next, {buffer=0})
-    vim.keymap.set("n", "<leader>gk", vim.diagnostic.goto_prev, {buffer=0})
-    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {buffer=0})
-    vim.keymap.set("n", "<leader>cd", vim.lsp.buf.code_action, {buffer=0})
-    end,
+require 'lspconfig'.pyright.setup {
+  capabilities = capabilities,
+}
+
+-- python(jedi) >> poetry add jedi jedi-language-server
+require 'lspconfig'.jedi_language_server.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
 }
 
 -- pictograms for completion
-vim.opt.completeopt = {"menu", "menuone", "noselect"}
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 local ok, lspkind = pcall(require, "lspkind")
 if not ok then
   return
@@ -91,7 +113,7 @@ end
 lspkind.init()
 
 -- completion configuration
-local cmp = require'cmp'
+local cmp = require 'cmp'
 cmp.setup({
   insert = true,
   snippet = {
@@ -134,7 +156,7 @@ cmp.setup({
     { name = 'path' },
     { name = 'luasnip' },
     { name = 'buffer', keyword_length = 2 },
- 	{ name = 'cmp_tabnine' },
+    { name = 'cmp_tabnine' },
     { name = 'emoji' },
   })
 })
@@ -146,4 +168,3 @@ cmp.setup.filetype('gitcommit', {
     { name = 'buffer' },
   })
 })
-
