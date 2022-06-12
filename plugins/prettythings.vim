@@ -1,4 +1,7 @@
 Plug 'ap/vim-css-color'
-Plug 'danilo-augusto/vim-afterglow'
 Plug 'psliwka/vim-smoothie'
 Plug 'junegunn/goyo.vim'
+
+" Colorschemes
+Plug 'sainnhe/everforest'
+Plug 'danilo-augusto/vim-afterglow'
