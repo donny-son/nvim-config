@@ -18,17 +18,18 @@ vim.keymap.set("n", "<leader>dq", ":lua require'dap'.terminate()<CR>")
 vim.keymap.set("n", "<leader>tm", ":lua require('dap-python').test_method()<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>tc", ":lua require('dap-python').test_class()<CR>", { noremap = true, silent = true })
 vim.keymap.set("v", "<leader>tv", "<ESC>:lua require('dap-python').debug_selection()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>tt", ":!python -m unittest %<CR>", { noremap = true })
 
 local venv = os.getenv("VIRTUAL_ENV");
 
 local dappython = require('dap-python');
-dappython.setup(string.format("%s/bin/python",venv))
+dappython.setup(string.format("%s/bin/python", venv))
 -- dappython.test_runner = 'pytest' -- defaults to 'unitttest'
 
 local dap = require('dap');
 dap.adapters.python = {
   type = 'executable';
-  command = string.format("%s/bin/python",venv);
+  command = string.format("%s/bin/python", venv);
   args = { '-m', 'debugpy.adapter' };
 }
 
@@ -59,8 +60,8 @@ dap.configurations.python = {
 -- delete vscode launch.json trailing comma
 require('dap.ext.vscode').load_launchjs()
 
-vim.fn.sign_define('DapBreakpoint', {text='🟥', texthl='', linehl='', numhl=''})
-vim.fn.sign_define('DapStopped', {text='⭐️', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpoint', { text = '🟥', texthl = '', linehl = '', numhl = '' })
+vim.fn.sign_define('DapStopped', { text = '⭐️', texthl = '', linehl = '', numhl = '' })
 
 require('dapui').setup()
 require('nvim-dap-virtual-text').setup()
