@@ -8,7 +8,7 @@ vim.keymap.set("n", "<leader>gk", vim.diagnostic.goto_prev, { buffer = 0 })
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
--- diagnostic
+-- diagnostic >> npm i -g diagnostic-languageserver
 require 'lspconfig'.diagnosticls.setup {
   filetypes = { 'lua', 'python', 'markdown', 'sh', 'py', 'json', 'yaml', 'js', 'ts' }
 }
