@@ -85,9 +85,10 @@ Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 
 Plug 'jalvesaq/Nvim-R', { 'branch': 'stable' }
 
+
 call plug#end()
 
-colorscheme afterglow
+colorscheme everforest
 
 
 " Bash
