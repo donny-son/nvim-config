@@ -1,17 +1,23 @@
-vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
-vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { buffer = 0 })
 vim.keymap.set("n", "<leader>gj", vim.diagnostic.goto_next, { buffer = 0 })
 vim.keymap.set("n", "<leader>gk", vim.diagnostic.goto_prev, { buffer = 0 })
-vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = 0 })
--- vim.keymap.set("n", "<leader>cd", vim.lsp.buf.code_action, {buffer=0})
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+-- diagnostic >> npm i -g diagnostic-languageserver
+require 'lspconfig'.diagnosticls.setup {
+  filetypes = { 'lua', 'python', 'markdown', 'sh', 'py', 'json', 'yaml', 'js', 'ts' }
+}
 
 -- formatting
 require 'lsp-format'.setup {}
 local on_attach = function(client)
   require 'lsp-format'.on_attach(client)
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
+  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = 0 })
+  vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { buffer = 0 })
+  vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { buffer = 0 })
+  vim.keymap.set("n", "<leader>cd", vim.lsp.buf.code_action, { buffer = 0 })
 end
 
 -- json, html, css, eslint >> npm i -g vscode-langservers-extracted
@@ -96,13 +102,14 @@ require 'lspconfig'.sumneko_lua.setup {
 -- python(pyright) >> npm i -g pyright
 require 'lspconfig'.pyright.setup {
   capabilities = capabilities,
+  on_attach = on_attach,
 }
 
 -- python(jedi) >> poetry add jedi jedi-language-server
-require 'lspconfig'.jedi_language_server.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
+-- require 'lspconfig'.jedi_language_server.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+-- }
 
 -- pictograms for completion
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
