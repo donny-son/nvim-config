@@ -128,10 +128,10 @@ cmp.setup({
         buffer = "[buf]",
         nvim_lsp = "[LSP]",
         nvim_lua = "[lua]",
-        path = "[path]",
+        path = "[🧭]",
         luasnip = "[snip]",
-        cmp_tabnine = "[AI]",
-        emoji = "[EMJI]",
+        cmp_tabnine = "[🤖]",
+        emoji = "[🌭]",
       }
     }
   },
