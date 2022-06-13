@@ -7,6 +7,23 @@ Plug 'pantharshit00/vim-prisma'
 Plug 'averms/black-nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'vim-test/vim-test'
 Plug 'Scuilion/markdown-drawer'
+Plug 'sheerun/vim-polyglot' " language pack
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'hrsh7th/cmp-emoji'
+Plug 'onsails/lspkind.nvim'
+Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-completion'
+Plug 'kristijanhusak/vim-dadbod-ui'
+Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+Plug 'jalvesaq/Nvim-R', { 'branch': 'stable' }
+Plug 'lukas-reineke/lsp-format.nvim'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
 
 let test#strategy = "neovim"
 let test#neovim#term_position = "botright"

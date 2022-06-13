@@ -14,17 +14,24 @@ vim.keymap.set("n", "<leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input(
 vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>")
 vim.keymap.set("n", "<leader>dq", ":lua require'dap'.terminate()<CR>")
 
--- nvim dap python
-vim.keymap.set("n", "<leader>tm", ":lua require('dap-python').test_method()<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>tc", ":lua require('dap-python').test_class()<CR>", { noremap = true, silent = true })
-vim.keymap.set("v", "<leader>tv", "<ESC>:lua require('dap-python').debug_selection()<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>tt", ":!python -m unittest %<CR>", { noremap = true })
-
 local venv = os.getenv("VIRTUAL_ENV");
 
+-- nvim-dap-go
+require('dap-go').setup();
+vim.keymap.set("n", "<leader>tg", ":lua require('dap-go').debug_test()<CR>", { noremap = true, silent = true });
+
+-- nvim-dap-python
 local dappython = require('dap-python');
-dappython.setup(string.format("%s/bin/python", venv))
--- dappython.test_runner = 'pytest' -- defaults to 'unitttest'
+dappython.setup(
+  string.format("%s/bin/python", venv),
+  {
+    vim.keymap.set("n", "<leader>tm", ":lua require('dap-python').test_method()<CR>", { noremap = true, silent = true });
+    vim.keymap.set("n", "<leader>tc", ":lua require('dap-python').test_class()<CR>", { noremap = true, silent = true });
+    vim.keymap.set("v", "<leader>tv", "<ESC>:lua require('dap-python').debug_selection()<CR>",
+      { noremap = true, silent = true });
+    vim.keymap.set("n", "<leader>tt", ":!python -m unittest %<CR>", { noremap = true });
+  }
+)
 
 local dap = require('dap');
 dap.adapters.python = {
@@ -60,8 +67,8 @@ dap.configurations.python = {
 -- delete vscode launch.json trailing comma
 require('dap.ext.vscode').load_launchjs()
 
-vim.fn.sign_define('DapBreakpoint', { text = '🟥', texthl = '', linehl = '', numhl = '' })
-vim.fn.sign_define('DapStopped', { text = '⭐️', texthl = '', linehl = '', numhl = '' })
+vim.fn.sign_define('DapBreakpoint', { text = '🍎', texthl = '', linehl = '', numhl = '' })
+vim.fn.sign_define('DapStopped', { text = '🐛', texthl = '', linehl = '', numhl = '' })
 
 require('dapui').setup()
 require('nvim-dap-virtual-text').setup()
