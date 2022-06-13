@@ -2,14 +2,12 @@ vim.keymap.set("n", "<leader>gj", vim.diagnostic.goto_next, { buffer = 0 })
 vim.keymap.set("n", "<leader>gk", vim.diagnostic.goto_prev, { buffer = 0 })
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
--- diagnostic >> npm i -g diagnostic-languageserver
-require 'lspconfig'.diagnosticls.setup {
-  filetypes = { 'lua', 'python', 'markdown', 'sh', 'py', 'json', 'yaml', 'js', 'ts' }
-}
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- formatting
 require 'lsp-format'.setup {}
+
+-- attach when lsp server is triggered
 local on_attach = function(client)
   require 'lsp-format'.on_attach(client)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
@@ -20,8 +18,34 @@ local on_attach = function(client)
   vim.keymap.set("n", "<leader>cd", vim.lsp.buf.code_action, { buffer = 0 })
 end
 
+---------------
+-- LANGUAGES --
+---------------
+
+-- dot language server >> npm i -g dot-language-server
+require 'lspconfig'.dotls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+
+-- dockerfile language server >> npm i -g dockerfile-language-server-nodejs
+require 'lspconfig'.dockerls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+
+-- go >> go install golang.org/x/tools/gopls@latest
+require 'lspconfig'.gopls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+
+-- diagnostic >> npm i -g diagnostic-languageserver
+require 'lspconfig'.diagnosticls.setup {
+  filetypes = { 'lua', 'python', 'markdown', 'sh', 'py', 'json', 'yaml', 'js', 'ts' }
+}
+
 -- json, html, css, eslint >> npm i -g vscode-langservers-extracted
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 require 'lspconfig'.jsonls.setup {
   capabilities = capabilities,
   on_attach = on_attach,
@@ -57,6 +81,24 @@ require 'lspconfig'.bashls.setup {
 
 -- markdown >> cargo install prosemd-lsp
 require 'lspconfig'.prosemd_lsp.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+
+-- typescript >> npm install -g typescript typescript-language-server
+require 'lspconfig'.tsserver.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+
+-- solidity >> npm i -g solidity-language-server
+require 'lspconfig'.solidity_ls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+
+-- markdown >>  https://github.com/artempyanykh/marksman/releases
+require 'lspconfig'.marksman.setup {
   capabilities = capabilities,
   on_attach = on_attach,
 }
