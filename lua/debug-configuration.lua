@@ -30,6 +30,7 @@ dappython.setup(
     vim.keymap.set("v", "<leader>tv", "<ESC>:lua require('dap-python').debug_selection()<CR>",
       { noremap = true, silent = true });
     vim.keymap.set("n", "<leader>tt", ":!python -m unittest %<CR>", { noremap = true });
+    vim.keymap.set("n", "<leader>tp", ":!python -m pytest %<CR>", { noremap = true });
   }
 )
 
@@ -64,7 +65,7 @@ dap.configurations.python = {
   },
 }
 
--- delete vscode launch.json trailing comma
+-- remember to delete vscode launch.json trailing comma
 require('dap.ext.vscode').load_launchjs()
 
 vim.fn.sign_define('DapBreakpoint', { text = '🍎', texthl = '', linehl = '', numhl = '' })
@@ -75,11 +76,11 @@ require('nvim-dap-virtual-text').setup()
 
 local dapui = require("dapui")
 dap.listeners.after.event_initialized["dapui_config"] = function()
-  dapui.open()
+  dapui.open("sidebar")
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
-  dapui.close()
+  dapui.close("sidebar")
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
-  dapui.close()
+  dapui.close("sidebar")
 end

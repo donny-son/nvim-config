@@ -5,7 +5,9 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- formatting
-require 'lsp-format'.setup {}
+require 'lsp-format'.setup {
+  sql = { exclude = { "sqls" } }
+}
 
 -- attach when lsp server is triggered
 local on_attach = function(client)

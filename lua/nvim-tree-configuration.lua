@@ -19,7 +19,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
     width = 30,
     height = 30,
     hide_root_folder = false,
-    side = "left",
+    side = "right",
     preserve_window_proportions = false,
     number = false,
     relativenumber = false,
@@ -109,7 +109,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
     },
   },
   filters = {
-    dotfiles = true,
+    dotfiles = false,
     custom = {},
     exclude = {},
   },
@@ -119,7 +119,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
   },
   git = {
     enable = true,
-    ignore = true,
+    ignore = false,
     timeout = 400,
   },
   actions = {
