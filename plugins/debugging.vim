@@ -5,4 +5,4 @@ Plug 'leoluz/nvim-dap-go'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'nvim-telescope/telescope-dap.nvim'
 Plug 'theHamsta/nvim-dap-virtual-text'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " :TSInstall python
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " :TSInstall all
