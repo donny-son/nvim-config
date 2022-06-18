@@ -8,17 +8,13 @@ git clone git@github.com:donny-son/nvim-config.git ~/.config/nvim
 
 ### System Dependencies
 
-#### System
-
 - Live grep for Telescope : `brew install ripgrep`
+- Yarn, NodeJS : install from brew and manage versions of node with nvm
+- Rust 
+- Go
 
-#### LSP related
+### LSP related
 
-- Cargo Rust .. for prosemd_lsp
-- Go .. for sqls
-- Npm JS .. for pyright and many more
-
-***by languages***
 - dot language server >> `npm i -g dot-language-server`
 - dockerfile language server >> `npm i -g dockerfile-language-server-nodejs`
 - go >> `go install golang.org/x/tools/gopls@latest`
@@ -30,9 +26,30 @@ git clone git@github.com:donny-son/nvim-config.git ~/.config/nvim
 - markdown >> `cargo install prosemd-lsp`
 - typescript >> `npm install -g typescript typescript-language-server`
 - solidity >> `npm i -g solidity-language-server`
-- markdown >>  https://github.com/artempyanykh/marksman/releases
 - mac >> `brew install lua-language-server`
 - python(pyright) >> `npm i -g pyright`
+
+```bash
+brew install lua-language-server
+
+npm i -g dot-language-server
+npm i -g dockerfile-language-server-nodejs
+npm i -g diagnostic-languageserver
+npm i -g vscode-langservers-extracted
+npm i -g bash-language-server
+npm i -g typescript typescript-language-server
+npm i -g solidity-language-server
+npm i -g pyright
+
+go install golang.org/x/tools/gopls@latest
+go install github.com/lighttiger2505/sqls
+
+cargo install prosemd-lsp
+
+install.packages("languageserver") # R
+```
+
+- markdown >>  https://github.com/artempyanykh/marksman/releases
 
 ### Vim Plugin Manager
 
@@ -61,7 +78,7 @@ Install all plugins by `:PlugInstall` in nvim.
     go install github.com/go-delve/delve/cmd/dlv@latest
     ```
 
-- Python
+- Python: for each virtual environment
     ```bash
     poetry install debugpy
     ```
