@@ -13,6 +13,7 @@ call plug#end()
 
 colorscheme everforest
 
+source $HOME/.config/nvim/post-plugins/markdownviewer-config.vim
 source $HOME/.config/nvim/post-plugins/panemanagement-config.vim
 source $HOME/.config/nvim/post-plugins/keymaps.vim
 

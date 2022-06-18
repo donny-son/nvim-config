@@ -40,3 +40,6 @@ nnoremap <leader>gy :Goyo<CR>
 
 " database
 nnoremap <leader>DB :DBUIToggle<CR>
+
+nmap <leader>mm <Plug>MarkdownPreviewToggle
+

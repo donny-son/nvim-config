@@ -24,6 +24,7 @@ Plug 'jalvesaq/Nvim-R', { 'branch': 'stable' }
 Plug 'lukas-reineke/lsp-format.nvim'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 let test#strategy = "neovim"
 let test#neovim#term_position = "botright"
