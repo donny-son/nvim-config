@@ -9,7 +9,7 @@ git clone git@github.com:donny-son/nvim-config.git ~/.config/nvim
 ### System Dependencies
 
 - Live grep for Telescope : `brew install ripgrep`
-- Yarn, NodeJS : install from brew and manage versions of node with nvm
+- NodeJS, Yarn : install from brew and manage versions of node with nvm
 - Rust 
 - Go
 
