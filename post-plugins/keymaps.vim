@@ -2,10 +2,10 @@ let mapleader=" "
 
 noremap <leader>gf :e <cfile><CR>
 
-nnoremap <leader>rK :resize +12<CR>
-nnoremap <leader>rJ :resize -12<CR>
-nnoremap <leader>rj :vertical resize -12<CR>
-nnoremap <leader>rk :vertical resize +12<CR>
+nnoremap <leader>eK :resize +12<CR>
+nnoremap <leader>eJ :resize -12<CR>
+nnoremap <leader>ej :vertical resize -12<CR>
+nnoremap <leader>ek :vertical resize +12<CR>
 
 " telescope 
 nnoremap <leader><Space> :Telescope find_files<CR>
