@@ -8,7 +8,7 @@ set mouse=a
 set hidden
 set nobackup
 set nowritebackup
-set cmdheight=2
+set cmdheight=1
 set shortmess+=c
 set noimd
 set cursorline
@@ -17,8 +17,8 @@ set noswapfile
 set ruler
 set noswapfile
 set incsearch
-set encoding=utf-8
 set conceallevel=0
+set encoding=utf-8
 set fileencoding=utf-8
 set smartindent
 set nu
@@ -28,10 +28,10 @@ set splitbelow
 set splitright
 set foldmethod=indent
 set foldlevel=99
-set tabstop=4
 set rnu
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set autoindent
 set updatetime=300
@@ -41,7 +41,7 @@ set ruler
 set incsearch
 set termguicolors
 set scrolloff=30
-set colorcolumn=88
+" set colorcolumn=88
 set signcolumn=yes
 set noshowmode " use vim-airline
 set langmap=ㅁa,ㅠb,ㅊc,ㅇd,ㄷe,ㄹf,ㅎg,ㅗh,ㅑi,ㅓj,ㅏk,ㅣl,ㅡm,ㅜn,ㅐo,ㅔp,ㅂq,ㄱr,ㄴs,ㅅt,ㅕu,ㅍv,ㅈw,ㅌx,ㅛy,ㅋz
