@@ -164,7 +164,7 @@ end
 lspkind.init()
 
 -- completion configuration
-local cmp = require 'cmp'
+local cmp = require('cmp')
 cmp.setup({
   insert = true,
   snippet = {
@@ -172,6 +172,10 @@ cmp.setup({
       require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
     end,
   },
+  enabled = function()
+    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
+        or require("cmp_dap").is_dap_buffer()
+  end,
   formatting = {
     format = lspkind.cmp_format {
       with_text = true,
@@ -181,6 +185,7 @@ cmp.setup({
         nvim_lua = "[Lua]",
         path = "[🧭]",
         luasnip = "[✂️ ]",
+        dap = "[🐛]",
         cmp_tabnine = "[🤖]",
         emoji = "[🌭]",
       }
@@ -188,18 +193,13 @@ cmp.setup({
   },
   window = {
     -- completion = cmp.config.window.bordered(),
-    -- documentation = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-s>'] = cmp.mapping.complete(),
-    ['<C-a>'] = cmp.mapping.abort(),
-    ['<C-y>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
-    },
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lua' },
@@ -207,6 +207,7 @@ cmp.setup({
     { name = 'path' },
     { name = 'luasnip' },
     { name = 'buffer', keyword_length = 2 },
+    { name = 'dap' },
     { name = 'cmp_tabnine' },
     { name = 'emoji' },
   })
