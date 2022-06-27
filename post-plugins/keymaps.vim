@@ -18,8 +18,8 @@ nnoremap <leader>fh :Telescope help_tags<CR>
 nnoremap <leader>fg :Telescope git_status<CR>
 
 " These commands will navigate through buffers in order regardless of which mode you are using
-nmap <Tab> :BufferLineCycleNext<CR>
-nmap <S-Tab> :BufferLineCyclePrev<CR>
+nnoremap <Tab> :BufferLineCycleNext<CR>
+nnoremap <S-Tab> :BufferLineCyclePrev<CR>
 
 " Explorer
 nnoremap <c-p> :NvimTreeToggle<CR>
@@ -36,7 +36,7 @@ tnoremap <c-q> <c-\><c-n>:Ttoggle<CR>
 
 " markdown
 nnoremap <leader>mh :MarkDrawer<CR>
-nmap <leader>md <Plug>MarkdownPreviewToggle
+nnoremap <leader>md <Plug>MarkdownPreviewToggle
 nnoremap <leader>gy :Goyo<CR>
 
 " database

@@ -19,7 +19,7 @@ local venv = os.getenv("VIRTUAL_ENV");
 -- nvim-dap-go
 local dapgo = require('dap-go')
 dapgo.setup();
-vim.keymap.set("n", "<leader>dt", ":lua require('dap-go').debug_test()<CR>", { noremap = true, silent = true });
+vim.keymap.set("n", "<leader>tf", ":lua require('dap-go').debug_test()<CR>", { noremap = true, silent = true });
 
 -- nvim-dap-python
 local dappython = require('dap-python');
@@ -109,7 +109,7 @@ require("dapui").setup({
   floating = {
     max_height = nil, -- These can be integers or a float between 0 and 1.
     max_width = nil, -- Floats will be treated as percentage of your screen.
-    border = "rounded", -- Border style. Can be "single", "double" or "rounded"
+    border = "double", -- Border style. Can be "single", "double" or "rounded"
     mappings = {
       close = { "q", "<Esc>" },
     },
