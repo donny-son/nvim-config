@@ -1,17 +1,17 @@
-require('bufferline').setup{
+require('bufferline').setup {
   options = {
     mode = "buffers", -- set to "tabs" to only show tabpages instead
-    close_command = "bdelete! %d",       -- can be a string | function, see "Mouse actions"
+    close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
     right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
-    left_mouse_command = "buffer %d",    -- can be a string | function, see "Mouse actions"
-    middle_mouse_command = nil,          -- can be a string | function, see "Mouse actions"
+    left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
+    middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
     indicator_icon = '▎',
     buffer_close_icon = '',
     modified_icon = '●',
     close_icon = '',
     left_trunc_marker = '',
     right_trunc_marker = '',
-    name_formatter = function(buf)  -- buf contains a "name", "path" and "bufnr"
+    name_formatter = function(buf) -- buf contains a "name", "path" and "bufnr"
       if buf.name:match('%.md') then
         return vim.fn.fnamemodify(buf.name, ':t:r')
       end
@@ -22,7 +22,7 @@ require('bufferline').setup{
     diagnostics = "nvim_lsp", -- | "nvim_lsp" | "coc",
     diagnostics_update_in_insert = false,
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
-      return "("..count..")"
+      return "(" .. count .. ")"
     end,
     -- NOTE: this will be called a lot so don't do any heavy processing here
     custom_filter = function(buf_number, buf_numbers)
@@ -58,3 +58,5 @@ require('bufferline').setup{
     always_show_bufferline = true
   }
 }
+
+require('cinnamon').setup()

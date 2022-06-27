@@ -6,3 +6,4 @@ Plug 'junegunn/goyo.vim'
 " Colorschemes
 Plug 'sainnhe/everforest'
 Plug 'danilo-augusto/vim-afterglow'
+Plug 'declancm/cinnamon.nvim'
