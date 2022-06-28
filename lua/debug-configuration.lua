@@ -19,7 +19,7 @@ local venv = os.getenv("VIRTUAL_ENV");
 -- nvim-dap-go
 local dapgo = require('dap-go')
 dapgo.setup();
-vim.keymap.set("n", "<leader>tm", ":lua require('dap-go').debug_test()<CR>", { noremap = true, silent = true });
+vim.keymap.set("n", "<leader>dt", ":lua require('dap-go').debug_test()<CR>", { noremap = true, silent = true });
 
 -- nvim-dap-python
 local dappython = require('dap-python');
