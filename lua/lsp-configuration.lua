@@ -220,3 +220,6 @@ cmp.setup.filetype('gitcommit', {
     { name = 'buffer' },
   })
 })
+
+-- Toggle LSP diagnostic
+require 'toggle_lsp_diagnostics'.init()
