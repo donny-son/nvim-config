@@ -29,6 +29,7 @@ Plug 'weilbith/nvim-code-action-menu'
 Plug 'kosayoda/nvim-lightbulb'
 Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
+Plug 'github/copilot.vim'
 
 let test#strategy = "neovim"
 let test#neovim#term_position = "botright"
