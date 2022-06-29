@@ -46,7 +46,7 @@ go install github.com/lighttiger2505/sqls@latest
 
 cargo install prosemd-lsp
 
-install.packages("languageserver") # R
+Rscript -e "install.packages('languageserver', repos='http://cran.us.r-project.org')"
 ```
 
 - markdown >>  https://github.com/artempyanykh/marksman/releases
