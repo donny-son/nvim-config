@@ -1,5 +1,8 @@
 let mapleader=" "
 
+imap jj <Esc>
+imap kk <Esc>
+
 noremap <leader>gf :e <cfile><CR>
 
 nnoremap <leader>eK :resize +12<CR>

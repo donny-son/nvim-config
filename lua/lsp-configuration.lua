@@ -188,7 +188,7 @@ require 'lspconfig'.spectral.setup {}
 require 'lspconfig'.rust_analyzer.setup {}
 
 -- remark
-require 'lspconfig'.remark_ls.setup {}
+-- require 'lspconfig'.remark_ls.setup {}
 
 -- pictograms for completion
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
