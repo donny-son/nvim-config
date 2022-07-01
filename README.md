@@ -13,6 +13,25 @@ git clone git@github.com:donny-son/nvim-config.git ~/.config/nvim
 - Rust 
 - Go
 
+```bash
+# nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+nvm install node # after source
+
+# ripgrep
+sudo apt install -y ripgrep # for linux
+brew install ripgrep # for mac
+
+# yarn
+npm i -g yarn
+
+# rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Go
+# install manually from https://go.dev/doc/install
+```
+
 ### LSP related
 
 - dot language server >> `npm i -g dot-language-server`
