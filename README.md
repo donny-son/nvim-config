@@ -101,6 +101,9 @@ Install all plugins by `:PlugInstall` in nvim.
 
 `:CmpTabnineHub`
 
+#### Copilot
+`:Copilot setup`
+
 #### Nvim DAP
 
 - Go Delve
