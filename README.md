@@ -59,6 +59,7 @@ npm i -g bash-language-server
 npm i -g typescript typescript-language-server
 npm i -g solidity-language-server
 npm i -g pyright
+npm i -g spectral
 
 go install golang.org/x/tools/gopls@latest
 go install github.com/lighttiger2505/sqls@latest

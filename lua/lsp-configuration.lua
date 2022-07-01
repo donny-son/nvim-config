@@ -1,6 +1,17 @@
 vim.keymap.set("n", "<leader>gj", vim.diagnostic.goto_next, { buffer = 0 })
 vim.keymap.set("n", "<leader>gk", vim.diagnostic.goto_prev, { buffer = 0 })
 
+require("nvim-lsp-installer").setup({
+  automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+  ui = {
+    icons = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗"
+    }
+  }
+})
+
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
@@ -154,6 +165,30 @@ require 'lspconfig'.pyright.setup {
 --   capabilities = capabilities,
 --   on_attach = on_attach,
 -- }
+
+-- python
+require 'lspconfig'.sourcery.setup {}
+
+-- zk for notetaking
+require 'lspconfig'.zk.setup {}
+
+-- vimscript
+require 'lspconfig'.vimls.setup {}
+
+-- toml files
+require 'lspconfig'.taplo.setup {}
+
+-- tailwindcss
+require 'lspconfig'.tailwindcss.setup {}
+
+-- json, yaml linter
+require 'lspconfig'.spectral.setup {}
+
+-- Rust
+require 'lspconfig'.rust_analyzer.setup {}
+
+-- remark
+require 'lspconfig'.remark_ls.setup {}
 
 -- pictograms for completion
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
