@@ -64,11 +64,13 @@ require 'lspconfig'.jsonls.setup {
   capabilities = capabilities,
   on_attach = on_attach,
 }
+
 require 'lspconfig'.html.setup {
   capabilities = capabilities,
   on_attach = on_attach,
 
 }
+
 require 'lspconfig'.cssls.setup {
   capabilities = capabilities,
   on_attach = on_attach,
@@ -110,19 +112,6 @@ require 'lspconfig'.prosemd_lsp.setup {
   capabilities = capabilities,
   on_attach = on_attach,
 }
-
--- markdown >>  https://github.com/artempyanykh/marksman/releases
--- require 'lspconfig'.marksman.setup {
---   capabilities = capabilities,
---   on_attach = on_attach,
--- }
-
--- markdown
--- require 'lspconfig'.remark_ls.setup {
---   capabilities = capabilities,
---   on_attach = on_attach,
--- }
-
 
 -- tabnine
 local tabnine = require('cmp_tabnine.config')
@@ -169,16 +158,10 @@ require 'lspconfig'.pyright.setup {
 }
 
 -- python(jedi) >> poetry add jedi jedi-language-server
--- require 'lspconfig'.jedi_language_server.setup {
---   capabilities = capabilities,
---   on_attach = on_attach,
--- }
-
--- python
-require 'lspconfig'.sourcery.setup {}
-
--- zk for notetaking
-require 'lspconfig'.zk.setup {}
+require 'lspconfig'.jedi_language_server.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 
 -- vimscript
 require 'lspconfig'.vimls.setup {}
@@ -194,9 +177,6 @@ require 'lspconfig'.spectral.setup {}
 
 -- Rust
 require 'lspconfig'.rust_analyzer.setup {}
-
--- remark
--- require 'lspconfig'.remark_ls.setup {}
 
 -- pictograms for completion
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
