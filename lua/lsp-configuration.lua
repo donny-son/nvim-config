@@ -106,10 +106,10 @@ require 'lspconfig'.solidity_ls.setup {
 }
 
 -- markdown >> cargo install prosemd-lsp
--- require 'lspconfig'.prosemd_lsp.setup {
---   capabilities = capabilities,
---   on_attach = on_attach,
--- }
+require 'lspconfig'.prosemd_lsp.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 
 -- markdown >>  https://github.com/artempyanykh/marksman/releases
 -- require 'lspconfig'.marksman.setup {
@@ -118,10 +118,10 @@ require 'lspconfig'.solidity_ls.setup {
 -- }
 
 -- markdown
-require 'lspconfig'.remark_ls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
+-- require 'lspconfig'.remark_ls.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+-- }
 
 
 -- tabnine
