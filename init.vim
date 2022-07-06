@@ -27,3 +27,4 @@ autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ 
 autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | exe 'Telescope find_files' | endif
 autocmd CursorHold,CursorHoldI * lua require('nvim-lightbulb').update_lightbulb()
+
