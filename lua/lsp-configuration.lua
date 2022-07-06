@@ -195,10 +195,6 @@ cmp.setup({
       require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
     end,
   },
-  enabled = function()
-    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
-        or require("cmp_dap").is_dap_buffer()
-  end,
   formatting = {
     format = lspkind.cmp_format {
       with_text = true,
@@ -208,14 +204,12 @@ cmp.setup({
         nvim_lua = "[Lua]",
         path = "[🧭]",
         luasnip = "[✂️ ]",
-        dap = "[🐛]",
         cmp_tabnine = "[🤖]",
         emoji = "[🌭]",
       }
     }
   },
   window = {
-    -- completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert({
@@ -230,7 +224,6 @@ cmp.setup({
     { name = 'path' },
     { name = 'luasnip' },
     { name = 'buffer', keyword_length = 2 },
-    { name = 'dap' },
     { name = 'cmp_tabnine' },
     { name = 'emoji' },
   })
