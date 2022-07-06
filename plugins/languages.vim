@@ -48,3 +48,9 @@ let g:markdrawer_to_delete_color = "Red"
 let g:markdrawer_drawer_max_levels = 4 " max levels to display
 let g:markdrawer_toc = 'index' " displays as a TOC
 let g:markdrawer_toc = 'full_index' " displays as a TOC, no index reset
+
+let g:copilot_filetypes = {
+\ '*': v:false,
+\ 'python': v:true,
+\ 'go': v:true,
+\ }
