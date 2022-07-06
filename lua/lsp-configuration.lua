@@ -1,3 +1,4 @@
+---@diagnostic disable: need-check-nil
 vim.keymap.set("n", "<leader>gj", vim.diagnostic.goto_next, { buffer = 0 })
 vim.keymap.set("n", "<leader>gk", vim.diagnostic.goto_prev, { buffer = 0 })
 
@@ -92,12 +93,6 @@ require 'lspconfig'.bashls.setup {
   on_attach = on_attach,
 }
 
--- markdown >> cargo install prosemd-lsp
-require 'lspconfig'.prosemd_lsp.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
 -- typescript >> npm install -g typescript typescript-language-server
 require 'lspconfig'.tsserver.setup {
   capabilities = capabilities,
@@ -110,11 +105,24 @@ require 'lspconfig'.solidity_ls.setup {
   on_attach = on_attach,
 }
 
+-- markdown >> cargo install prosemd-lsp
+-- require 'lspconfig'.prosemd_lsp.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+-- }
+
 -- markdown >>  https://github.com/artempyanykh/marksman/releases
-require 'lspconfig'.marksman.setup {
+-- require 'lspconfig'.marksman.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+-- }
+
+-- markdown
+require 'lspconfig'.remark_ls.setup {
   capabilities = capabilities,
   on_attach = on_attach,
 }
+
 
 -- tabnine
 local tabnine = require('cmp_tabnine.config')
