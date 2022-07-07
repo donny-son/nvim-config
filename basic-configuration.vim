@@ -45,4 +45,4 @@ set scrolloff=30
 set signcolumn=yes
 set noshowmode " use vim-airline
 set langmap=ㅁa,ㅠb,ㅊc,ㅇd,ㄷe,ㄹf,ㅎg,ㅗh,ㅑi,ㅓj,ㅏk,ㅣl,ㅡm,ㅜn,ㅐo,ㅔp,ㅂq,ㄱr,ㄴs,ㅅt,ㅕu,ㅍv,ㅈw,ㅌx,ㅛy,ㅋz
-
+set guicursor+=a:-blinkwait175-blinkoff150-blinkon175

@@ -173,7 +173,7 @@ require 'lspconfig'.taplo.setup {}
 require 'lspconfig'.tailwindcss.setup {}
 
 -- json, yaml linter
-require 'lspconfig'.spectral.setup {}
+require 'lspconfig'.yamlls.setup {}
 
 -- Rust
 require 'lspconfig'.rust_analyzer.setup {}
