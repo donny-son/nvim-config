@@ -34,6 +34,7 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
 Plug 'github/copilot.vim'
 Plug 'nvim-telescope/telescope-symbols.nvim'
+Plug 'folke/lua-dev.nvim'
 
 let test#strategy = "neovim"
 let test#neovim#term_position = "botright"

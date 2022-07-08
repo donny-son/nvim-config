@@ -202,8 +202,8 @@ cmp.setup({
         buffer = "[📄]",
         nvim_lsp = "[📚]",
         nvim_lua = "[]",
-        path = "[🧭]",
-        luasnip = "[✂️ ]",
+        path = "[📁]",
+        luasnip = "[✂️]",
         cmp_tabnine = "[🤖]",
         emoji = "[🌭]",
       }

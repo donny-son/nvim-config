@@ -7,3 +7,5 @@ Plug 'junegunn/goyo.vim'
 Plug 'sainnhe/everforest'
 Plug 'danilo-augusto/vim-afterglow'
 Plug 'declancm/cinnamon.nvim'
+
+Plug 'nvim-colortils/colortils.nvim'
