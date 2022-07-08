@@ -60,3 +60,5 @@ require('bufferline').setup {
 }
 
 require('cinnamon').setup()
+
+require 'colorizer'.setup()
