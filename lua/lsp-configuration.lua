@@ -201,7 +201,7 @@ cmp.setup({
       menu = {
         buffer = "[📄]",
         nvim_lsp = "[📚]",
-        nvim_lua = "[Lua]",
+        nvim_lua = "[]",
         path = "[🧭]",
         luasnip = "[✂️ ]",
         cmp_tabnine = "[🤖]",
