@@ -83,6 +83,13 @@ require 'lspconfig'.r_language_server.setup {
   on_attach = on_attach,
 }
 
+-- swift
+require 'lspconfig'.sourcekit.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+
+
 -- sqls >> go install github.com/lighttiger2505/sqls
 require 'lspconfig'.sqls.setup {
   capabilities = capabilities,
