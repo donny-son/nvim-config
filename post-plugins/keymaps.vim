@@ -33,6 +33,7 @@ tnoremap <c-p> <c-\><c-n>:NvimTreeToggle<CR>
 nnoremap <leader> q :bd<CR>
 
 " terminal
+nnoremap <leader>zz :source ~/.config/nvim/init.vim<CR>
 nnoremap <c-q> <cmd>NeotermToggle<CR>
 inoremap <c-q> <Esc><cmd>NeotermToggle<CR>
 tnoremap <c-q> <c-\><c-n><cmd>NeotermToggle<CR>

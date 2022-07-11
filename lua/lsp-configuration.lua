@@ -264,3 +264,6 @@ cmp.setup.filetype('gitcommit', {
 
 -- Toggle LSP diagnostic
 require 'toggle_lsp_diagnostics'.init()
+
+-- fidget
+require 'fidget'.setup {}

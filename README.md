@@ -69,7 +69,7 @@ cargo install prosemd-lsp
 Rscript -e "install.packages('languageserver', repos='http://cran.us.r-project.org')"
 ```
 
-- markdown >>  https://github.com/artempyanykh/marksman/releases
+- [markdown lsp marksman](https://github.com/artempyanykh/marksman/releases)
 
 ### Vim Plugin Manager
 
