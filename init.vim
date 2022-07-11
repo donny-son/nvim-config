@@ -10,9 +10,12 @@ source $HOME/.config/nvim/plugins/filemanagement.vim
 source $HOME/.config/nvim/plugins/panemanagement.vim
 source $HOME/.config/nvim/plugins/debugging.vim
 source $HOME/.config/nvim/plugins/code.vim
+source $HOME/.config/nvim/plugins/colorscheme.vim
 call plug#end()
 
-colorscheme everforest
+let g:aurora_italic = 1
+let g:aurora_bold = 1
+colorscheme aurora
 
 source $HOME/.config/nvim/post-plugins/markdownviewer-config.vim
 source $HOME/.config/nvim/post-plugins/panemanagement-config.vim

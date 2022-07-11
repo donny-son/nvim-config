@@ -13,3 +13,11 @@ vim.keymap.set('n', '<leader>cz',
 vim.keymap.set('n', '<C-y>',
   '<cmd>SymbolsOutline<cr>',
   { remap = true, silent = true, desc = 'Toggle SymbolsOutline' })
+
+-- refresh init.vim and pluginstall
+vim.keymap.set(
+  'n',
+  '<leader>zz',
+  '<cmd>source ~/.config/nvim/init.vim | PlugInstall<cr>',
+  { remap = false, desc = 'Refresh and PlugInstall' }
+)
