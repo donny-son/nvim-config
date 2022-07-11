@@ -29,7 +29,7 @@ local on_attach = function(client)
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = 0 })
   vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { buffer = 0 })
   vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { buffer = 0 })
-  vim.keymap.set("n", "<leader>cd", vim.lsp.buf.code_action, { buffer = 0 })
+  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = 0 })
 end
 
 ---------------
@@ -171,19 +171,34 @@ require 'lspconfig'.jedi_language_server.setup {
 }
 
 -- vimscript
-require 'lspconfig'.vimls.setup {}
+require 'lspconfig'.vimls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 
 -- toml files
-require 'lspconfig'.taplo.setup {}
+require 'lspconfig'.taplo.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 
 -- tailwindcss
-require 'lspconfig'.tailwindcss.setup {}
+require 'lspconfig'.tailwindcss.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 
 -- json, yaml linter
-require 'lspconfig'.yamlls.setup {}
+require 'lspconfig'.yamlls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 
 -- Rust
-require 'lspconfig'.rust_analyzer.setup {}
+require 'lspconfig'.rust_analyzer.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 
 -- pictograms for completion
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
@@ -213,6 +228,7 @@ cmp.setup({
         luasnip = "[✂️]",
         cmp_tabnine = "[🤖]",
         emoji = "[🌭]",
+        calc = "[]",
       }
     }
   },
@@ -233,6 +249,7 @@ cmp.setup({
     { name = 'buffer', keyword_length = 2 },
     { name = 'cmp_tabnine' },
     { name = 'emoji' },
+    { name = 'calc' },
   })
 })
 

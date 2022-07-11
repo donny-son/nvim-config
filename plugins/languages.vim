@@ -9,6 +9,7 @@ Plug 'vim-test/vim-test'
 Plug 'Scuilion/markdown-drawer'
 Plug 'sheerun/vim-polyglot' " language pack
 Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-calc'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'neovim/nvim-lspconfig'
