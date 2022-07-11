@@ -21,3 +21,11 @@ vim.keymap.set(
   '<cmd>source ~/.config/nvim/init.vim | PlugInstall<cr>',
   { remap = false, desc = 'Refresh and PlugInstall' }
 )
+
+-- neogit
+vim.keymap.set(
+  'n',
+  '<leader>ng',
+  '<cmd>Neogit<cr>',
+  { remap = false, silent = true, desc = 'Start Neogit' }
+)
