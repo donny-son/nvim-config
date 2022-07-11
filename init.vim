@@ -24,6 +24,7 @@ lua require('lsp-configuration')
 lua require('debug-configuration')
 lua require('telescope-configuration')
 lua require('code-configuration')
+lua require('keymaps')
 
 autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
 autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
