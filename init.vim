@@ -9,6 +9,7 @@ source $HOME/.config/nvim/plugins/lines.vim
 source $HOME/.config/nvim/plugins/filemanagement.vim
 source $HOME/.config/nvim/plugins/panemanagement.vim
 source $HOME/.config/nvim/plugins/debugging.vim
+source $HOME/.config/nvim/plugins/code.vim
 call plug#end()
 
 colorscheme everforest
@@ -22,6 +23,7 @@ lua require('buffer-configuration')
 lua require('lsp-configuration')
 lua require('debug-configuration')
 lua require('telescope-configuration')
+lua require('code-configuration')
 
 autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
 autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
