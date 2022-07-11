@@ -24,6 +24,7 @@ require 'lsp-format'.setup {
 -- attach when lsp server is triggered
 local on_attach = function(client)
   require 'lsp-format'.on_attach(client)
+  require 'lsp_signature'.on_attach()
   vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = 0 })

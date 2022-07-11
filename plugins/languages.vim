@@ -36,6 +36,7 @@ Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
 Plug 'github/copilot.vim'
 Plug 'nvim-telescope/telescope-symbols.nvim'
 Plug 'folke/lua-dev.nvim'
+Plug 'ray-x/lsp_signature.nvim'
 
 let test#strategy = "neovim"
 let test#neovim#term_position = "botright"
