@@ -4,7 +4,6 @@ require('bufferline').setup {
     close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
     right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
     left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
-    middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
     indicator_icon = '▎',
     buffer_close_icon = '',
     modified_icon = '●',
@@ -19,10 +18,11 @@ require('bufferline').setup {
     max_name_length = 18,
     max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
     tab_size = 18,
-    diagnostics = "nvim_lsp", -- | "nvim_lsp" | "coc",
+    diagnostics = true, -- | "nvim_lsp" | "coc",
     diagnostics_update_in_insert = false,
-    diagnostics_indicator = function(count, level, diagnostics_dict, context)
-      return "(" .. count .. ")"
+    diagnostics_indicator = function(count, level)
+      local icon = level:match("error") and " " or ""
+      return " " .. icon .. count
     end,
     -- NOTE: this will be called a lot so don't do any heavy processing here
     custom_filter = function(buf_number, buf_numbers)
@@ -59,6 +59,25 @@ require('bufferline').setup {
   }
 }
 
-require('cinnamon').setup()
+require 'cinnamon'.setup()
 
 require 'colorizer'.setup()
+
+local autosave = require("autosave")
+autosave.setup(
+  {
+    enabled = true,
+    execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
+    events = { "InsertLeave", "TextChanged" },
+    conditions = {
+      exists = true,
+      filename_is_not = {},
+      filetype_is_not = {},
+      modifiable = true
+    },
+    write_all_buffers = false,
+    on_off_commands = true,
+    clean_command_line_interval = 0,
+    debounce_delay = 135
+  }
+)
