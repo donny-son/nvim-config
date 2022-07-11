@@ -39,6 +39,8 @@ Plug 'folke/lua-dev.nvim'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'jghauser/follow-md-links.nvim'
+Plug 'TimUntersberger/neogit'
+
 
 let test#strategy = "neovim"
 let test#neovim#term_position = "botright"

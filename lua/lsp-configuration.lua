@@ -267,3 +267,7 @@ require 'toggle_lsp_diagnostics'.init()
 
 -- fidget
 require 'fidget'.setup {}
+
+-- neogit
+local neogit = require('neogit')
+neogit.setup {}
