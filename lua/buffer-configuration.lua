@@ -59,15 +59,19 @@ require('bufferline').setup {
   }
 }
 
-require 'cinnamon'.setup()
-
-require 'colorizer'.setup()
+require('cinnamon').setup()
+require('colorizer').setup()
+require('lualine').setup({
+  options = {
+    theme = 'neon'
+  }
+})
 
 vim.g.symbols_outline = {
   highlight_hovered_item = true,
   show_guides = true,
-  auto_preview = true,
-  position = 'left',
+  auto_preview = false,
+  position = 'right',
   width = 25,
   auto_close = false,
   show_numbers = false,

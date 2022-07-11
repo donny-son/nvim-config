@@ -13,10 +13,6 @@ source $HOME/.config/nvim/plugins/code.vim
 source $HOME/.config/nvim/plugins/colorscheme.vim
 call plug#end()
 
-let g:aurora_italic = 1
-let g:aurora_bold = 1
-colorscheme aurora
-
 source $HOME/.config/nvim/post-plugins/markdownviewer-config.vim
 source $HOME/.config/nvim/post-plugins/panemanagement-config.vim
 source $HOME/.config/nvim/post-plugins/keymaps.vim
@@ -28,6 +24,7 @@ lua require('debug-configuration')
 lua require('telescope-configuration')
 lua require('code-configuration')
 lua require('keymaps')
+lua require('colorscheme')
 
 autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
 autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
