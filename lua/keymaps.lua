@@ -7,7 +7,7 @@ vim.keymap.set('n', '<leader>cc',
   { silent = true, desc = 'Fold-cycle: close folds' })
 vim.keymap.set('n', '<leader>cz',
   function() return require('fold-cycle').toggle_all() end,
-  { remap = true, silent = true, desc = 'Fold-cycle: close all folds' })
+  { remap = true, silent = true, desc = 'Fold-cycle: toggle folds' })
 
 -- symbols outline
 vim.keymap.set('n', '<C-y>',
