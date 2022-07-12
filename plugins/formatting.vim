@@ -5,4 +5,4 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'sotte/presenting.vim'
 Plug 'mechatroner/rainbow_csv'
-
+Plug 'dhruvasagar/vim-table-mode'
