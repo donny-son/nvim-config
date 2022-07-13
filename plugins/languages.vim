@@ -61,4 +61,7 @@ let g:copilot_filetypes = {
 \ '*': v:false,
 \ 'python': v:true,
 \ 'go': v:true,
+\ 'javascript': v:true,
+\ 'typescript': v:true,
+\ 'markdown': v:true,
 \ }
