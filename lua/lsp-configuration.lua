@@ -226,11 +226,11 @@ cmp.setup({
     format = lspkind.cmp_format {
       with_text = true,
       menu = {
+        luasnip = "[✂️]",
         buffer = "[📄]",
         nvim_lsp = "[📚]",
         nvim_lua = "[]",
         path = "[📁]",
-        luasnip = "[✂️]",
         cmp_tabnine = "[🤖]",
         emoji = "[🌭]",
         calc = "[]",
@@ -247,14 +247,14 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
   }),
   sources = cmp.config.sources({
-    { name = 'nvim_lua' },
-    { name = 'nvim_lsp' },
-    { name = 'path' },
     { name = 'luasnip' },
-    { name = 'buffer', keyword_length = 2 },
     { name = 'cmp_tabnine' },
-    { name = 'emoji' },
+    { name = 'nvim_lsp' },
+    { name = 'nvim_lua' },
+    { name = 'path' },
     { name = 'calc' },
+    { name = 'buffer', keyword_length = 2 },
+    { name = 'emoji' },
   })
 })
 
@@ -275,3 +275,6 @@ require 'fidget'.setup {}
 -- neogit
 local neogit = require('neogit')
 neogit.setup {}
+
+-- snippets
+require("luasnip.loaders.from_snipmate").lazy_load()
