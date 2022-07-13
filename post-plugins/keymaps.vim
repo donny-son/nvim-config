@@ -38,7 +38,6 @@ inoremap <c-q> <Esc><cmd>NeotermToggle<CR>
 tnoremap <c-q> <c-\><c-n><cmd>NeotermToggle<CR>
 
 " markdown
-nnoremap <leader>mh :MarkDrawer<CR>
 nnoremap <leader>md <Plug>MarkdownPreviewToggle
 nnoremap <leader>gy :Goyo<CR>
 
