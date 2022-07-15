@@ -1,37 +1,39 @@
 -- nvim dap
-vim.keymap.set("n", "<leader>dd", ":lua require'dap'.continue()<CR>") -- start debugger
+vim.keymap.set("n", "<leader>dd", ":lua require'dap'.continue()<CR>",
+  { desc = "Toggle debugger & continue to breakpoint" }) -- start debugger
 
 -- standard movements for stepping in and out
-vim.keymap.set("n", "<leader>dj", ":lua require'dap'.step_into()<CR>")
-vim.keymap.set("n", "<leader>dk", ":lua require'dap'.step_out()<CR>")
+vim.keymap.set("n", "<leader>dj", ":lua require'dap'.step_into()<CR>", { desc = "Debug | Step Into" })
+vim.keymap.set("n", "<leader>dk", ":lua require'dap'.step_out()<CR>", { desc = "Debug | Step Out" })
+vim.keymap.set("n", "<leader>dn", ":lua require'dap'.step_over()<CR>", { desc = "Debug | Step Over | Next line" }) -- next line
+vim.keymap.set("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>", { desc = "Debug | Toggle Breakpoint" })
+vim.keymap.set("n", "<leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
+  { desc = "Debug | Toggle Conditional Breakpoint" })
 
--- debug "next" line
-vim.keymap.set("n", "<leader>dn", ":lua require'dap'.step_over()<CR>") -- next line
-
-vim.keymap.set("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>")
-vim.keymap.set("n", "<leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
-
-vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>")
-vim.keymap.set("n", "<leader>dq", ":lua require'dap'.terminate()<CR>")
+vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>", { desc = "Debug | Open REPL" })
+vim.keymap.set("n", "<leader>dq", ":lua require'dap'.terminate()<CR>", { desc = "Debug | Quit Debugger" })
 
 local venv = os.getenv("VIRTUAL_ENV");
 
 -- nvim-dap-go
 local dapgo = require('dap-go')
 dapgo.setup();
-vim.keymap.set("n", "<leader>dt", ":lua require('dap-go').debug_test()<CR>", { noremap = true, silent = true });
+vim.keymap.set("n", "<leader>dt", "<cmd>lua require('dap-go').debug_test()<CR>",
+  { noremap = true, silent = true, desc = { "dap-go debug test" } });
 
 -- nvim-dap-python
 local dappython = require('dap-python');
 dappython.setup(
   string.format("%s/bin/python", venv),
   {
-    vim.keymap.set("n", "<leader>tm", ":lua require('dap-python').test_method()<CR>", { noremap = true, silent = true });
-    vim.keymap.set("n", "<leader>tc", ":lua require('dap-python').test_class()<CR>", { noremap = true, silent = true });
-    vim.keymap.set("v", "<leader>tv", "<ESC>:lua require('dap-python').debug_selection()<CR>",
+    vim.keymap.set("n", "<leader>tm", "<cmd>lua require('dap-python').test_method()<CR>",
       { noremap = true, silent = true });
-    vim.keymap.set("n", "<leader>tt", ":!python -m unittest %<CR>", { noremap = true });
-    vim.keymap.set("n", "<leader>tp", ":!python -m pytest %<CR>", { noremap = true });
+    vim.keymap.set("n", "<leader>tc", "<cmd>lua require('dap-python').test_class()<CR>",
+      { noremap = true, silent = true });
+    vim.keymap.set("v", "<leader>tv", "<ESC><cmd>lua require('dap-python').debug_selection()<CR>",
+      { noremap = true, silent = true });
+    vim.keymap.set("n", "<leader>tt", "<cmd>!python -m unittest %<CR>", { noremap = true });
+    vim.keymap.set("n", "<leader>tp", "<cmd>!python -m pytest %<CR>", { noremap = true });
   }
 )
 
