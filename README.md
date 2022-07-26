@@ -34,6 +34,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 ### LSP related
 
+Use `nvim-lsp-installer`. This will automatically install lsp servers with a defined configuration.
+
 - dot language server >> `npm i -g dot-language-server`
 - dockerfile language server >> `npm i -g dockerfile-language-server-nodejs`
 - go >> `go install golang.org/x/tools/gopls@latest`
@@ -47,28 +49,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 - solidity >> `npm i -g solidity-language-server`
 - mac >> `brew install lua-language-server`
 - python(pyright) >> `npm i -g pyright`
-
-```bash
-brew install lua-language-server
-
-npm i -g dot-language-server
-npm i -g dockerfile-language-server-nodejs
-npm i -g diagnostic-languageserver
-npm i -g vscode-langservers-extracted
-npm i -g bash-language-server
-npm i -g typescript typescript-language-server
-npm i -g solidity-language-server
-npm i -g pyright
-npm i -g spectral
-
-go install golang.org/x/tools/gopls@latest
-go install github.com/lighttiger2505/sqls@latest
-
-cargo install prosemd-lsp
-
-Rscript -e "install.packages('languageserver', repos='http://cran.us.r-project.org')"
-```
-
 - [markdown lsp marksman](https://github.com/artempyanykh/marksman/releases)
 
 ### Vim Plugin Manager
@@ -108,11 +88,13 @@ Install all plugins by `:PlugInstall` in nvim.
 #### Nvim DAP
 
 - Go Delve
-    ```bash
-    go install github.com/go-delve/delve/cmd/dlv@latest
-    ```
+
+```bash
+go install github.com/go-delve/delve/cmd/dlv@latest
+```
 
 - Python: for each virtual environment
-    ```bash
-    poetry install debugpy
-    ```
+
+```bash
+poetry add --dev debugpy
+```
