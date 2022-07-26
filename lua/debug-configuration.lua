@@ -26,7 +26,7 @@ local dappython = require('dap-python');
 dappython.setup(
   string.format("%s/bin/python", venv),
   {
-    vim.keymap.set("n", "<leader>tm", "<cmd>lua require('dap-python').test_method()<CR>",
+    vim.keymap.set("n", "<leader>tf", "<cmd>lua require('dap-python').test_method()<CR>",
       { noremap = true, silent = true });
     vim.keymap.set("n", "<leader>tc", "<cmd>lua require('dap-python').test_class()<CR>",
       { noremap = true, silent = true });
