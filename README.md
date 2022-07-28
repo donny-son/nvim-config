@@ -16,7 +16,7 @@ git clone git@github.com:donny-son/nvim-config.git ~/.config/nvim
 ```bash
 # nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-nvm install node # after source
+nvm install 17 # after source
 
 # ripgrep
 sudo apt install -y ripgrep # for linux
