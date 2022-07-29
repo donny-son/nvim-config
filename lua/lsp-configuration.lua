@@ -57,7 +57,9 @@ require 'lspconfig'.gopls.setup {
 
 -- diagnostic >> npm i -g diagnostic-languageserver
 require 'lspconfig'.diagnosticls.setup {
-  filetypes = { 'lua', 'python', 'markdown', 'sh', 'py', 'json', 'yaml', 'js', 'ts' }
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = { 'lua' },
 }
 
 -- json, html, css, eslint >> npm i -g vscode-langservers-extracted
@@ -274,8 +276,7 @@ require 'toggle_lsp_diagnostics'.init()
 require 'fidget'.setup {}
 
 -- neogit
-local neogit = require('neogit')
-neogit.setup {}
+require 'neogit'.setup {}
 
 -- snippets
-require("luasnip.loaders.from_snipmate").lazy_load()
+require "luasnip.loaders.from_snipmate".lazy_load()

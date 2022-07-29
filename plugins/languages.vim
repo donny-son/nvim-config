@@ -40,6 +40,7 @@ Plug 'ray-x/lsp_signature.nvim'
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'jghauser/follow-md-links.nvim'
 Plug 'TimUntersberger/neogit'
+Plug 'folke/trouble.nvim'
 
 
 let test#strategy = "neovim"

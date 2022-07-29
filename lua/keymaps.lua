@@ -73,3 +73,24 @@ vim.keymap.set('n', '<leader>DB', '<cmd>DBUIToggle<cr>',
 -- markdown
 vim.keymap.set('n', '<leader>md', '<Plug>MarkdownPreviewToggle',
   { remap = false, silent = false, desc = 'Open markdown preview in browser' })
+
+-- diagnostics
+-- Lua
+vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>",
+  { silent = true, noremap = true, desc = 'Toggle Trouble' }
+)
+vim.api.nvim_set_keymap("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>",
+  { silent = true, noremap = true, desc = 'Trouble workspace diagnostics' }
+)
+vim.api.nvim_set_keymap("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>",
+  { silent = true, noremap = true, desc = 'Trouble document diagnostics' }
+)
+vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>",
+  { silent = true, noremap = true, desc = 'Trouble loclist' }
+)
+vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>",
+  { silent = true, noremap = true, desc = 'Trouble quickfix' }
+)
+vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>",
+  { silent = true, noremap = true, desc = 'Trouble lsp reference' }
+)

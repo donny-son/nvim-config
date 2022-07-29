@@ -114,7 +114,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
     exclude = {},
   },
   filesystem_watchers = {
-    enable = false,
+    enable = true,
     interval = 100,
   },
   git = {
