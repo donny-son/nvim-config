@@ -87,11 +87,14 @@ require 'lspconfig'.r_language_server.setup {
 }
 
 -- swift
-require 'lspconfig'.sourcekit.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
+local gon = require("get_os_name")
+local os_name, arch_name = gon.get_os_name()
+if os_name == 'Mac' then
+  require 'lspconfig'.sourcekit.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+  }
+end
 
 -- sqls >> go install github.com/lighttiger2505/sqls
 require 'lspconfig'.sqls.setup {
